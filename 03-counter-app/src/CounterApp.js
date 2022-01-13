@@ -11,7 +11,7 @@ const CounterApp = ({value = 10}) => {
         // setCounter((c) => c + 1);
     };
 
-    const handleSubstract = () => setCounter(counter - 1);
+    const handleSubtract = () => setCounter(counter - 1);
 
     const handleReset = () => setCounter(value);
 
@@ -22,7 +22,7 @@ const CounterApp = ({value = 10}) => {
 
             <button onClick={handleAdd}>+1</button>
             <button onClick={handleReset}>Reset</button>
-            <button onClick={handleSubstract}>-1</button>
+            <button onClick={handleSubtract}>-1</button>
         </Fragment>
     );
 };
