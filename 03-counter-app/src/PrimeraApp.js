@@ -1,9 +1,7 @@
 import React from "react";
 // import React, {Fragment} from "react";
 
-const PrimeraApp = () => {
-
-    const saludo = 'Hola Mundo';
+const PrimeraApp = ({saludo = 'Hola Mundo'}) => {
 
     return (
         <>
