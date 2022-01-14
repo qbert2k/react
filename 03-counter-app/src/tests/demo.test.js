@@ -1,8 +1,14 @@
-test('debe de ser true', () =>{
+// https://jestjs.io/
 
-    const isActive = true;
+describe('Pruebas en el archivo demo.test.js', () => {
+    test('deben de ser iguales los string', () => {
+        // 1. Inicialización
+        const mensaje = 'Hola Mundo';
 
-    if (isActive) {
-        throw new Error('No esta activo');
-    }
-})
+        // 2. Estímulo
+        const mensaje2 = `Hola Mundo`;
+
+        // 3. Observar el comportamuento
+        expect(mensaje).toBe(mensaje2);
+    })
+});

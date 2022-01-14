@@ -80,3 +80,9 @@ npm install
 ```
 npm start
 ```
+
+### Ejecutar tests
+
+```
+npm run test
+```
