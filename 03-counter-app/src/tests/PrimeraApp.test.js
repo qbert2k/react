@@ -1,13 +1,12 @@
 import React from "react";
-import {render} from "@testing-library/react";
 import PrimeraApp from "../PrimeraApp";
+import {shallow} from 'enzyme';
 
 describe('Pruebas en <PrimeraApp/>', () => {
-    test('Debe mostrar el mensaje Hola, soy Goku', () => {
-        const saludo = 'Hola, soy Goku';
+    test('Debe de mostrar <PrimeraApp/> correctamente', () => {
+        const saludo = 'Hola, Soy Goku';
+        const wrapper = shallow(<PrimeraApp saludo={saludo}/>);
 
-        const {getByText} = render(<PrimeraApp saludo={saludo}/>);
-
-        expect(getByText(saludo)).toBeInTheDocument();
+        expect(wrapper).toMatchSnapshot();
     })
 })

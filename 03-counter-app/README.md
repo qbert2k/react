@@ -86,3 +86,16 @@ npm start
 ```
 npm run test
 ```
+
+### Instalar Enzyme para React 17
+```
+npm install --save-dev @wojtekmaj/enzyme-adapter-react-17
+```
+https://enzymejs.github.io/enzyme/
+https://github.com/wojtekmaj/enzyme-adapter-react-17
+
+## Instalar enzyme-to-json
+```
+npm install --save-dev enzyme-to-json
+```
+https://www.npmjs.com/package/enzyme-to-json
