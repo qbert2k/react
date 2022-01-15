@@ -1,7 +1,6 @@
 import React from "react";
 import CounterApp from "../CounterApp";
 import {shallow} from 'enzyme';
-import * as Console from "console";
 
 describe('Pruebas en <CounterApp/>', () => {
 
