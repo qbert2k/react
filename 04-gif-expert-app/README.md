@@ -68,3 +68,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### http-server: a simple static HTTP server
+
+```
+npm install --global http-server
+```
+
+https://www.npmjs.com/package/http-server
+
+### Build and Test
+
+```
+npm run build
+cd build
+http-server -o
+```
