@@ -15,6 +15,5 @@ describe('Puebas en <GifExpertApp/>', () => {
 
         expect(wrapper).toMatchSnapshot();
         expect(wrapper.find('GifGrid').length).toBe(categories.length);
-
     })
 });
