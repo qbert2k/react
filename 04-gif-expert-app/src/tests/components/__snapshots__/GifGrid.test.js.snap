@@ -16,6 +16,12 @@ exports[`Prueba en el <GifGrid/> debe de mostrar items cuando se cargan imágene
       title="Cualquier cosa"
       url="https://localhost/cualquier/cosa.jpg"
     />
+    <GifGridItem
+      id="QWE"
+      key="QWE"
+      title="Cualquier cosa"
+      url="https://localhost/cualquier/cosa.jpg"
+    />
   </div>
 </Fragment>
 `;
