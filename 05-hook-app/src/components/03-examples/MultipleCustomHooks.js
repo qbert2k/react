@@ -24,8 +24,7 @@ export const MultipleCustomHooks = () => {
                         <p className="mb-0">{quote}</p>
                         <br/>
                         <footer className="blockquote-footer">
-                            {author} in
-                            <cite title="BreakingBad">BreakingBad</cite>
+                            {author}
                         </footer>
                     </blockquote>
                 )
