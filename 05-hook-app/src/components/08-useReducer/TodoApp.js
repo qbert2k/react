@@ -1,23 +1,36 @@
-import React, {useReducer} from 'react';
+import React, {useEffect, useReducer} from 'react';
 import './styles.css';
 import todoReducer from './todoReducer';
+import {useForm} from '../../hooks/useForm';
 
-const initialState = [{
-    id: new Date().getTime(),
-    desc: 'Aprender React',
-    done: false
-}]
+const init = () => {
+    return JSON.parse(localStorage.getItem('todos')) || [];
+};
 
 const TodoApp = () => {
-    const [todos, dispatch] = useReducer(todoReducer, initialState);
-    console.log(todos);
+    const [todos, dispatch] = useReducer(todoReducer, [], init);
+
+    const [{description}, handleInputChange, reset] = useForm({
+        description: ''
+    });
+
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
+
+
+    console.log(description);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (description.trim().length <= 1) {
+            return;
+        }
+
         const newTodo = {
             id: new Date().getTime(),
-            desc: 'Nueva Tarea',
+            desc: description,
             done: false
         };
 
@@ -27,6 +40,7 @@ const TodoApp = () => {
         };
 
         dispatch(action);
+        reset();
     }
 
     return (
@@ -61,7 +75,9 @@ const TodoApp = () => {
                                name="description"
                                className="form-control"
                                placeholder="Aprender..."
-                               autoComplete="Off"/>
+                               autoComplete="Off"
+                               value={description}
+                               onChange={handleInputChange}/>
 
                         <button type="submit"
                                 className="btn btn-outline-primary mt-1 btn-block">
