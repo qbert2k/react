@@ -6,6 +6,12 @@
 npx create-react-app hook-app
 ```
 
+## Setup
+
+```
+npm install
+```
+
 ## Run
 
 ```
