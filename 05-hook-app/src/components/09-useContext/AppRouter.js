@@ -10,12 +10,14 @@ const AppRouter = () => {
         <BrowserRouter>
             <NavBar/>
 
-            <Routes>
-                <Route path="/" element={<HomeScreen/>}/>
-                <Route path="/about" element={<AboutScreen/>}/>
-                <Route path="/login" element={<LoginScreen/>}/>
-                <Route path="*" element={<HomeScreen/>}/>
-            </Routes>
+            <div className="container">
+                <Routes>
+                    <Route path="/" element={<HomeScreen/>}/>
+                    <Route path="/about" element={<AboutScreen/>}/>
+                    <Route path="/login" element={<LoginScreen/>}/>
+                    <Route path="*" element={<HomeScreen/>}/>
+                </Routes>
+            </div>
         </BrowserRouter>
     );
 };
