@@ -61,4 +61,4 @@ describe('Pruebas en useCounter', () => {
         const {counter} = result.current;
         expect(counter).toBe(100);
     });
-})
+});
