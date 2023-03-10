@@ -23,3 +23,9 @@ Run App
 ```shell
 yarn dev
 ```
+
+# Add dependencies
+
+```shell
+yarn add prop-types
+```

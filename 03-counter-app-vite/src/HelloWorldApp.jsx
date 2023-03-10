@@ -1,13 +1,15 @@
-import {FirstApp} from "./FirstApp.jsx";
+// function App() {
+//     return (<h1>Hola Mundo</h1>);
+// }
+
+// export default App;
 
 export const HelloWorldApp = () => {
+
+
     return (
-        <h1>Hola Mundo!!!</h1>
+        <h1>Hello World App</h1>
     );
 }
 
-// function App() {
-//     return <h1>Hola Mundo!!!</h1>;
-// }
-//
-// export default App;
+// FirstApp  <h1>Fernando</h1>
