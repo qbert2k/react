@@ -1,16 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { GifExpertApp } from '../src/GifExpertApp';
 
+describe('Test component <GifExpertApp />', () => {
 
-describe('Pruebas en <GifExpertApp />', () => {
-
-    test('should ', () => {
-        
+    test('should ..... ', () => {
         render( <GifExpertApp /> );
         screen.debug();
-
-
     });
-
-
 });
