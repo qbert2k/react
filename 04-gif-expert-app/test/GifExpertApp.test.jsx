@@ -3,8 +3,8 @@ import { GifExpertApp } from '../src/GifExpertApp';
 
 describe('Test component <GifExpertApp />', () => {
 
-    test('should ..... ', () => {
-        render( <GifExpertApp /> );
-        screen.debug();
+    test('should match snapshot', () => {
+        const {container} = render( <GifExpertApp /> );
+        expect(container).toMatchSnapshot();
     });
 });
