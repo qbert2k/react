@@ -1,67 +1,61 @@
-import { useEffect, useState } from 'react';
-import { Message } from './Message';
-
+import {useEffect, useState} from 'react';
+import {Message} from './Message';
 
 export const SimpleForm = () => {
 
     const [formState, setFormState] = useState({
-        username: 'strider',
-        email: 'fernando@google.com'
+        username: 'reactdev',
+        email: 'javier.rojas.blum@google.com'
     });
 
-    const { username, email } = formState;
+    const {username, email} = formState;
 
-    const onInputChange = ({ target }) => {
-        const { name, value } = target;
+    const onInputChange = ({target}) => {
+        const {name, value} = target;
         setFormState({
             ...formState,
-            [ name ]: value
+            [name]: value
         });
     }
 
-
-    useEffect( () => {
+    useEffect(() => {
         // console.log('useEffect called!');
     }, []);
-    
-    useEffect( () => {
+
+    useEffect(() => {
         // console.log('formState changed!');
     }, [formState]);
 
-    useEffect( () => {
+    useEffect(() => {
         // console.log('email changed!');
-    }, [ email ]);
-
-    
+    }, [email]);
 
     return (
         <>
-            <h1>Formulario Simple</h1> 
-            <hr />
+            <h1>Simple Form</h1>
+            <hr/>
 
-            <input 
-                type="text" 
+            <input
+                type="text"
                 className="form-control"
                 placeholder="Username"
                 name="username"
-                value={ username }
-                onChange={ onInputChange }
+                value={username}
+                onChange={onInputChange}
             />
 
-            <input 
-                type="email" 
+            <input
+                type="email"
                 className="form-control mt-2"
-                placeholder="fernando@google.com"
+                placeholder="javier.rojas.blum@google.com"
                 name="email"
-                value={ email }
-                onChange={ onInputChange }
+                value={email}
+                onChange={onInputChange}
             />
-
 
             {
-                (username === 'strider2' ) && <Message />
+                (username === 'javadev') && <Message/>
             }
-
         </>
     )
 }
