@@ -72,7 +72,9 @@ function Favorite({contact}) {
     // yes, this is a `let` for later
     let favorite = contact.favorite;
     return (
-        <Form method="post">
+        <Form
+            method="post"
+            action="destroy">
             <button
                 name="favorite"
                 value={favorite ? "false" : "true"}
