@@ -1,6 +1,6 @@
-import {Form, NavLink, Outlet, redirect, useLoaderData, useNavigation} from "react-router-dom";
+import {Form, NavLink, Outlet, redirect, useLoaderData, useNavigation, useSubmit} from "react-router-dom";
 import {createContact, getContacts} from "../contacts.js";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 export async function action() {
     const contact = await createContact();
@@ -16,11 +16,11 @@ export async function loader({request}) {
 
 export default function Root() {
     const {contacts, q} = useLoaderData();
-    const [query, setQuery] = useState(q);
     const navigation = useNavigation();
+    const submit = useSubmit();
 
     useEffect(() => {
-        setQuery(q);
+        document.getElementById("q").value = q;
     }, [q]);
 
     return (
@@ -35,9 +35,9 @@ export default function Root() {
                             placeholder="Search"
                             type="search"
                             name="q"
-                            value={query}
-                            onChange={(e) => {
-                                setQuery(e.target.value);
+                            defaultValue={q}
+                            onChange={(event) => {
+                                submit(event.currentTarget.form);
                             }}
                         />
                         <div
