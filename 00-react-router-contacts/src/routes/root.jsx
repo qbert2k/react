@@ -9,7 +9,7 @@ export async function action() {
 
 export async function loader({request}) {
     const url = new URL(request.url);
-    const q = url.searchParams.get("q") || "";
+    const q = url.searchParams.get("q");
     const contacts = await getContacts(q);
     return {contacts, q};
 }
@@ -42,7 +42,10 @@ export default function Root() {
                             name="q"
                             defaultValue={q}
                             onChange={(event) => {
-                                submit(event.currentTarget.form);
+                                const isFirstSearch = q == null;
+                                submit(event.currentTarget.form, {
+                                    replace: !isFirstSearch,
+                                });
                             }}
                         />
                         <div
