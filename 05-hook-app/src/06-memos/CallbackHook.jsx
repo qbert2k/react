@@ -1,34 +1,31 @@
-import { useCallback, useEffect, useState } from 'react';
-import { ShowIncrement } from './ShowIncrement';
-
+import {useCallback, useEffect, useState} from 'react';
+import {ShowIncrement} from './ShowIncrement';
 
 export const CallbackHook = () => {
 
-    const [counter, setCounter] = useState( 10 );
+    const [counter, setCounter] = useState(10);
 
     const incrementFather = useCallback(
-      (value) => {
-        setCounter( (c) => c + value );
-      },
-      [],
+        (value) => {
+            setCounter((c) => c + value);
+        },
+        [],
     );
 
     useEffect(() => {
-      // incrementFather();
+        // incrementFather();
     }, [incrementFather])
-    
-    
+
     // const incrementFather = () => {
     //     setCounter( counter + 1);
     // }
 
-
     return (
         <>
-            <h1>useCallback Hook: { counter } </h1>
-            <hr />
+            <h1>useCallback Hook: {counter}</h1>
+            <hr/>
 
-            <ShowIncrement increment={ incrementFather } />
+            <ShowIncrement increment={incrementFather}/>
         </>
     )
 }

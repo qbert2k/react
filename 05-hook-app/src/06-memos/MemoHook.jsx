@@ -29,8 +29,7 @@ export const MemoHook = () => {
             </button>
 
             <button className="btn btn-outline-primary"
-                    onClick={() => setShow(!show)}
-            >
+                    onClick={() => setShow(!show)}>
                 Show/Hide {JSON.stringify(show)}
             </button>
         </>
