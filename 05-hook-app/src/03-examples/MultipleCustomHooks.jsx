@@ -24,7 +24,6 @@ export const MultipleCustomHooks = () => {
                 onClick={() => increment()}>
                 Next quote
             </button>
-
         </>
     )
 }
