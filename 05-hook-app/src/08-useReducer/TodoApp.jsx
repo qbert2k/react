@@ -4,10 +4,10 @@ import {TodoList} from './TodoList';
 
 export const TodoApp = () => {
 
-    const {todos, todosCount, pendingTodosCount, handleDeleteTodo, handleToggleTodo, handleNewTodo} = useTodos();
+    const {todos, todosCount, pendingTodosCount, handleDeleteTodo, handleToggleTodo, handleNewTodo} =
+        useTodos();
 
-    return (
-        <>
+    return (<>
             <h1>TodoApp: {todosCount}, <small>pendientes: {pendingTodosCount}</small></h1>
             <hr/>
             <div className="row">
@@ -22,6 +22,5 @@ export const TodoApp = () => {
                     <TodoAdd onNewTodo={handleNewTodo}/>
                 </div>
             </div>
-        </>
-    )
+        </>)
 }

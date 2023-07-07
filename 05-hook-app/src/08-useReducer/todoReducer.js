@@ -1,4 +1,4 @@
-// { type: [todo remove], payload: id }
+// { type: '[TODO] Remove Todo', payload: id }
 
 export const todoReducer = (initialState = [], action) => {
 
