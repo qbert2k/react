@@ -3,7 +3,7 @@ import {HomePage} from './HomePage.jsx';
 import {AboutPage} from './AboutPage.jsx';
 import {LoginPage} from './LoginPage.jsx';
 import {Navbar} from './Navbar.jsx';
-import {UserProvider} from "./context/UserProvider.jsx";
+import {UserProvider} from './context/UserProvider.jsx';
 
 export const MainApp = () => {
     return (
