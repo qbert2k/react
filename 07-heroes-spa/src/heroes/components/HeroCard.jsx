@@ -1,5 +1,7 @@
 import {Link} from "react-router-dom";
 
+const CharactersByHero = ({alter_ego, characters}) => (alter_ego !== characters) && (<p>{characters}</p>);
+
 export const HeroCard = ({
                              id,
                              superhero,
@@ -28,9 +30,7 @@ export const HeroCard = ({
                                 {alter_ego}
                             </p>
 
-                            {
-                                (alter_ego !== characters) && (<p>{characters}</p>)
-                            }
+                            <CharactersByHero characters={characters} alter_ego={alter_ego}/>
 
                             <p className="card-text">
                                 <small className="text-muted">
