@@ -20,7 +20,7 @@ export const SearchPage = () => {
     const onSearchSubmit = (event) => {
         event.preventDefault();
 
-        if (searchText.trim().length <= 1) return;
+        // if (searchText.trim().length <= 1) return;
 
         navigate(`?q=${searchText}`);
     };
@@ -53,13 +53,11 @@ export const SearchPage = () => {
                     <h4>Results</h4>
                     <hr/>
 
-                    <div className="alert alert-primary">
-                        Search a hero
-                    </div>
-
-                    <div className="alert alert-danger">
-                        No hero with <b>{q}</b>
-                    </div>
+                    {
+                        (q === '')
+                            ? <div className="alert alert-primary">Search a hero</div>
+                            : (heroes.length === 0) && <div className="alert alert-danger">No hero with <b>{q}</b></div>
+                    }
 
                     {
                         heroes.map(
