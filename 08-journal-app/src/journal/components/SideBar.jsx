@@ -35,19 +35,19 @@ export const SideBar = ({drawerWidth}) => {
 
                 <List>
                     {
-                        ['A', 'B', 'C', 'D', 'E', 'F'].map(text => {
-                            <ListItem key="text" disablePadding>
+                        ['One', 'Two', 'Three', 'Four'].map(text => (
+                            <ListItem key={text} disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
                                         <TurnedInNot/>
                                     </ListItemIcon>
                                     <Grid container>
                                         <ListItemText primary={text}/>
-                                        <ListItemText secondary={'test test test'}/>
+                                        <ListItemText secondary={'Exercitation cillum irure elit consectetur.'}/>
                                     </Grid>
                                 </ListItemButton>
                             </ListItem>
-                        })
+                        ))
                     }
                 </List>
             </Drawer>
