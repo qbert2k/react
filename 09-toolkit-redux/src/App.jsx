@@ -1,5 +1,5 @@
-import {useDispatch, useSelector} from "react-redux";
-import {increment} from "./store/slices/counter";
+import {useDispatch, useSelector} from 'react-redux';
+import {decrement, increment, incrementBy} from './store/slices/counter';
 
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -23,10 +23,16 @@ function App() {
             <h1>Vite + React</h1>
             <div className="card">
                 <button onClick={() => dispatch(increment())}>
-                    count is {counter}
+                    Increment
+                </button>
+                <button onClick={() => dispatch(decrement())}>
+                    Decrement
+                </button>
+                <button onClick={() => dispatch(incrementBy(2))}>
+                    Increment by 2
                 </button>
                 <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
+                    count is {counter}
                 </p>
             </div>
             <p className="read-the-docs">
