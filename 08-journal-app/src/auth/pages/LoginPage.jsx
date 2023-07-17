@@ -1,7 +1,7 @@
 import {Link as RouterLink} from 'react-router-dom';
 import {Button, Grid, Link, TextField, Typography} from '@mui/material';
 import {Google} from '@mui/icons-material';
-import {AuthLayout} from "../layout/AuthLayout.jsx";
+import {AuthLayout} from '../layout/AuthLayout';
 
 export const LoginPage = () => {
     return (
@@ -41,7 +41,7 @@ export const LoginPage = () => {
                     <Grid container
                           direction="row"
                           justifyContent="end">
-                        <Link component={RouterLink} color="inherit" to="/suth/register">
+                        <Link component={RouterLink} color="inherit" to="/auth/register">
                             Register
                         </Link>
                     </Grid>
