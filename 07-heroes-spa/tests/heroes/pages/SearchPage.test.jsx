@@ -12,6 +12,15 @@ describe('Test <SearchPage/>', () => {
         );
 
         expect(container).toMatchSnapshot();
+
+        const input = screen.getByRole('textbox');
+        expect(input.value).toBe('');
+
+        const alertSearchHero = screen.getByLabelText('alert-search-hero');
+        expect(alertSearchHero.style.display).toBe('');
+
+        const alertNoHero = screen.getByLabelText('alert-no-hero');
+        expect(alertNoHero.style.display).toBe('none');
     });
 
     test('Should render Batman result', () => {
@@ -27,7 +36,31 @@ describe('Test <SearchPage/>', () => {
         const img = screen.getByRole('img');
         expect(img.src).toContain('/public/heroes/dc-batman.jpg');
 
-        const alertDanger = screen.getByLabelText('alert-danger');
-        expect(alertDanger.style.display).toBe('none');
+        const alertSearchHero = screen.getByLabelText('alert-search-hero');
+        expect(alertSearchHero.style.display).toBe('none');
+
+        const alertNoHero = screen.getByLabelText('alert-no-hero');
+        expect(alertNoHero.style.display).toBe('none');
+    });
+
+    test('Should display an error if the hero is not found', () => {
+        const {container} = render(
+            <MemoryRouter initialEntries={['/search?q=batman123']}>
+                <SearchPage/>
+            </MemoryRouter>
+        );
+
+        const input = screen.getByRole('textbox');
+        expect(input.value).toBe('batman123');
+
+        const alertSearchHero = screen.getByLabelText('alert-search-hero');
+        expect(alertSearchHero.style.display).toBe('none');
+
+        const alertNoHero = screen.getByLabelText('alert-no-hero');
+        expect(alertNoHero.style.display).toBe('');
+    });
+
+    test('Should call navigate', () => {
+
     });
 })
