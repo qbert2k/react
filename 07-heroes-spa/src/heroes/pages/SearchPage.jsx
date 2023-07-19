@@ -56,7 +56,8 @@ export const SearchPage = () => {
                     <hr/>
 
                     <div className="alert alert-primary animate__animated animate__fadeIn"
-                         style={{display: showSearch ? '' : 'none'}}>
+                         style={{display: showSearch ? '' : 'none'}}
+                         aria-label="alert-danger">
                         Search a hero
                     </div>
 

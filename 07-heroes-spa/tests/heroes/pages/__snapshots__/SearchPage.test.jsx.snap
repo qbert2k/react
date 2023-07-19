@@ -40,6 +40,7 @@ exports[`Test <SearchPage/> Should render the component with default values 1`] 
       </h4>
       <hr />
       <div
+        aria-label="alert-danger"
         class="alert alert-primary animate__animated animate__fadeIn"
       >
         Search a hero
