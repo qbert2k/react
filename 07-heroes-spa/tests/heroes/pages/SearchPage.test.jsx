@@ -1,8 +1,16 @@
 import {MemoryRouter} from 'react-router-dom';
-import {render, screen} from '@testing-library/react';
+import {fireEvent, render, screen} from '@testing-library/react';
 import {SearchPage} from '../../../src/heroes';
 
+const mockUseNavigate = jest.fn();
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useNavigate: () => mockUseNavigate
+}));
+
 describe('Test <SearchPage/>', () => {
+
+    beforeEach(() => jest.clearAllMocks());
 
     test('Should render the component with default values', () => {
         const {container} = render(
@@ -44,7 +52,7 @@ describe('Test <SearchPage/>', () => {
     });
 
     test('Should display an error if the hero is not found', () => {
-        const {container} = render(
+        render(
             <MemoryRouter initialEntries={['/search?q=batman123']}>
                 <SearchPage/>
             </MemoryRouter>
@@ -61,6 +69,19 @@ describe('Test <SearchPage/>', () => {
     });
 
     test('Should call navigate', () => {
+        const inputValue = 'superman';
+        render(
+            <MemoryRouter initialEntries={['/search']}>
+                <SearchPage/>
+            </MemoryRouter>
+        );
 
+        const input = screen.getByRole('textbox');
+        fireEvent.change(input, {target: {name: 'searchText', value: inputValue}});
+
+        const form = screen.getByRole('form');
+        fireEvent.submit(form);
+
+        expect(mockUseNavigate).toHaveBeenCalledWith(`?q=${inputValue}`);
     });
 })
