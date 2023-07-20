@@ -29,7 +29,6 @@ export const TodoApp = () => {
             <button onClick={nextTodo}>
                 Next
             </button>
-
         </>
     );
 }
