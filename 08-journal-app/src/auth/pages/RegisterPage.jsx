@@ -9,9 +9,21 @@ const formData = {
     password: '123456'
 };
 
+const formValidations = {
+    email: [(value) => value.includes('@'), 'The email must contain @'],
+    password: [(value) => value.length >= 6, 'The password must contain at least 6 letters'],
+    displayName: [(value) => value.length >= 1, 'The full name is mandatory']
+};
+
 export const RegisterPage = () => {
 
-    const {displayName, email, password, onInputChange, formState} = useForm(formData);
+    const {
+        formState,
+        displayName, email, password,
+        isFormValid, displayNameValid, emailValid, passwordValid,
+        onInputChange
+
+    } = useForm(formData, formValidations);
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -25,10 +37,12 @@ export const RegisterPage = () => {
                     <Grid item xs={12} sx={{mt: 2}}>
                         <TextField label="Full Name"
                                    type="text"
-                                   placeholder="John Doe"
+                                   placeholder="Full Name"
                                    name="displayName"
                                    value={displayName}
                                    onChange={onInputChange}
+                                   error={!displayNameValid}
+                                   helperText={displayNameValid}
                                    fullWidth/>
                     </Grid>
                     <Grid item xs={12} sx={{mt: 2}}>
@@ -38,6 +52,8 @@ export const RegisterPage = () => {
                                    name="email"
                                    value={email}
                                    onChange={onInputChange}
+                                   error={!emailValid}
+                                   helperText={emailValid}
                                    fullWidth/>
                     </Grid>
                     <Grid item xs={12} sx={{mt: 2}}>
@@ -47,6 +63,8 @@ export const RegisterPage = () => {
                                    name="password"
                                    value={password}
                                    onChange={onInputChange}
+                                   error={!passwordValid}
+                                   helperText={passwordValid}
                                    fullWidth/>
                     </Grid>
 
