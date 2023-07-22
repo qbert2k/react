@@ -10,9 +10,9 @@ const formData = {
 };
 
 const formValidations = {
+    displayName: [(value) => value.length >= 1, 'The full name is mandatory'],
     email: [(value) => value.includes('@'), 'The email must contain @'],
-    password: [(value) => value.length >= 6, 'The password must contain at least 6 letters'],
-    displayName: [(value) => value.length >= 1, 'The full name is mandatory']
+    password: [(value) => value.length >= 6, 'The password must contain at least 6 letters']
 };
 
 export const RegisterPage = () => {
