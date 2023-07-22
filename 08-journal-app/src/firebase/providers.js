@@ -1,4 +1,4 @@
-import {GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword} from 'firebase/auth';
+import {createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile} from 'firebase/auth';
 import {FirebaseAuth} from './config.js';
 
 const credential = new GoogleAuthProvider();
@@ -31,9 +31,8 @@ export const registerUserWithEmailPassword = async ({email, password, displayNam
     try {
         const resp = await createUserWithEmailAndPassword(FirebaseAuth, email, password);
         const {uid, photoURL} = resp.user;
-        console.log(resp);
 
-        // Todo update display name in firebase
+        await updateProfile(FirebaseAuth.currentUser, {displayName});
 
         return {
             ok: true,
