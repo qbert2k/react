@@ -6,7 +6,12 @@ import {Alert, Button, Grid, Link, TextField, Typography} from '@mui/material';
 import {Google} from '@mui/icons-material';
 import {AuthLayout} from '../layout/AuthLayout';
 import {useForm} from '../../hooks';
-import {checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword} from '../../store/auth';
+import {startGoogleSignIn, startLoginWithEmailPassword} from '../../store/auth';
+
+const initialForm = {
+    email: 'test@test.com',
+    password: '123456'
+};
 
 export const LoginPage = () => {
 
@@ -14,10 +19,7 @@ export const LoginPage = () => {
 
     const dispatch = useDispatch();
 
-    const {email, password, onInputChange} = useForm({
-        email: 'test@test.com',
-        password: '123456'
-    });
+    const {email, password, onInputChange} = useForm(initialForm);
 
     const isAuthenticating = useMemo(() => status === 'checking', [status]);
 
