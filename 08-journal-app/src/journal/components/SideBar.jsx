@@ -1,19 +1,7 @@
-import {useSelector} from 'react-redux';
-import {
-    Box,
-    Divider,
-    Drawer,
-    Grid,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText,
-    Toolbar,
-    Typography
-} from '@mui/material';
-import {TurnedInNot} from '@mui/icons-material';
-import {SideBarItem} from "./SideBarItem.jsx";
+import {useDispatch, useSelector} from 'react-redux';
+import {Box, Divider, Drawer, List, Toolbar, Typography} from '@mui/material';
+import {SideBarItem} from './SideBarItem';
+import {setActiveNote} from '../../store/journal';
 
 export const SideBar = ({drawerWidth}) => {
 
@@ -43,7 +31,8 @@ export const SideBar = ({drawerWidth}) => {
                 <List>
                     {
                         notes.map(note => (
-                            <SideBarItem key={note.id} {...note}/>
+                            <SideBarItem key={note.id}
+                                         {...note}/>
                         ))
                     }
                 </List>
