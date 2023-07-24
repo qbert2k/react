@@ -1,6 +1,6 @@
 import {collection, doc, setDoc} from 'firebase/firestore/lite';
 import {FirebaseDB} from '../../firebase/config';
-import {addNewEmptyNote, savingNewNote, setActiveNote, setNotes, setSaving} from './journalSlice';
+import {addNewEmptyNote, savingNewNote, setActiveNote, setNotes, setSaving, updateNote} from './journalSlice';
 import {loadNotes} from '../../helpers';
 
 export const startNewNote = () => {
@@ -14,7 +14,7 @@ export const startNewNote = () => {
             title: '',
             body: '',
             date: new Date().getTime(),
-            imageURL: null
+            imageURL: []
         }
 
         const newDoc = doc(collection(FirebaseDB, `${uid}/journal/notes`));
@@ -49,5 +49,7 @@ export const startSaveNote = () => {
 
         const docRef = doc(FirebaseDB, `${uid}/journal/notes/${note.id}`);
         await setDoc(docRef, noteToFirestore, {merge: true});
+
+        dispatch(updateNote(note));
     };
 }
