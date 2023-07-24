@@ -4,10 +4,7 @@ const initialState = {
     isSaving: false,
     messageSaved: '',
     notes: [],
-    // active: null,
-    active: {
-        id: '123456', title: '', body: '', imaeUrls: [], // https://foto1.jpg, https://foto2.jpg, https://foto3.jpg,
-    }
+    active: null
 }
 
 export const journalSlice = createSlice({
