@@ -1,5 +1,10 @@
 import {checkingCredentials, login, logout} from './';
-import {loginWithEmailPassword, registerUserWithEmailPassword, signInWithGoogle} from '../../firebase/providers';
+import {
+    loginWithEmailPassword,
+    registerUserWithEmailPassword,
+    signInWithGoogle,
+    logoutFirebase
+} from '../../firebase/providers';
 
 export const checkingAuthentication = (email, password) => {
     return async (dispatch) => {
@@ -39,5 +44,13 @@ export const startLoginWithEmailPassword = ({email, password}) => {
         if (!result.ok) return dispatch(logout(result));
 
         dispatch(login(result));
+    }
+}
+
+export const startLogout = () => {
+    return async (dispatch) => {
+        await logoutFirebase();
+
+        dispatch(logout());
     }
 }
