@@ -50,7 +50,7 @@ export const NoteView = () => {
             </Grid>
             <Grid item>
                 <Button color="primary"
-                        disable={isSaving}
+                        disabled={isSaving}
                         onClick={onSaveNote}
                         sx={{padding: 2}}>
                     <SaveOutlined sx={{
