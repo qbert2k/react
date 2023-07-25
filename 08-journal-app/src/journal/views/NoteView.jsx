@@ -1,14 +1,14 @@
-import {useEffect, useMemo} from 'react';
+import {useEffect, useMemo, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Button, Grid, TextField, Typography} from '@mui/material';
-import {SaveOutlined} from '@mui/icons-material';
+import {Button, Grid, IconButton, TextField, Typography} from '@mui/material';
+import {SaveOutlined, UploadOutlined} from '@mui/icons-material';
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 
 import {ImageGallery} from '../components';
 import {useForm} from '../../hooks';
-import {setActiveNote, startSaveNote} from '../../store/journal';
+import {setActiveNote, startSaveNote, startUploadingFiles} from '../../store/journal';
 
 export const NoteView = () => {
 
@@ -20,6 +20,8 @@ export const NoteView = () => {
         const newDate = new Date(date);
         return newDate.toUTCString();
     }, [date]);
+
+    const fileInputRef = useRef();
 
     useEffect(() => {
         dispatch(setActiveNote(formState));
@@ -33,6 +35,12 @@ export const NoteView = () => {
 
     const onSaveNote = () => {
         dispatch(startSaveNote());
+    }
+
+    const onFileInputChange = ({target}) => {
+        if (target.files === 0) return;
+
+        dispatch(startUploadingFiles(target.files));
     }
 
     return (
@@ -49,6 +57,17 @@ export const NoteView = () => {
                 </Typography>
             </Grid>
             <Grid item>
+                <input type="file"
+                       multiple
+                       ref={fileInputRef}
+                       onChange={onFileInputChange}
+                       style={{display: 'none'}}/>
+                <IconButton color="primary"
+                            onClick={() => fileInputRef.current.click()}
+                            disabled={isSaving}>
+                    <UploadOutlined/>
+                </IconButton>
+
                 <Button color="primary"
                         disabled={isSaving}
                         onClick={onSaveNote}
