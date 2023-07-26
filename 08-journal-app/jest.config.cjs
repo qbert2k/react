@@ -4,5 +4,5 @@ module.exports = {
     // moduleNameMapper: {
     //     "^animate.css$": "<rootDir>/mocks/animate.css.js",
     // },
-    // transformIgnorePatterns: ["/node_modules/(?!query-string)/"],
+    transformIgnorePatterns: [],
 }
