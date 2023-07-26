@@ -11,7 +11,7 @@ import {clearNotesLogout} from "../../../src/store/journal/index.js";
 
 jest.mock('../../../src/firebase/providers');
 
-describe('Test thunk', () => {
+describe('Test Auth thunk', () => {
 
     const dispatch = jest.fn();
 
