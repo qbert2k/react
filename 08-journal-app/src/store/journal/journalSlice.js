@@ -52,11 +52,7 @@ export const journalSlice = createSlice({
         },
         deleteNoteById: (state, action) => {
             state.isSaving = false;
-
-            state.notes = state.notes.filter((note) => {
-                return (action.payload !== note.id);
-            });
-
+            state.notes = state.notes.filter(note => action.payload !== note.id);
             state.active = null;
         }
     },
