@@ -1,7 +1,9 @@
+const cloudName = 'dlwwn5mfl';
+
 export const fileUpload = async (file) => {
     if (!file) return null;
 
-    const cloudUrl = 'https://api.cloudinary.com/v1_1/dlwwn5mfl/image/upload';
+    const cloudUrl = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
 
     const formData = new FormData();
     formData.append('upload_preset', 'react-journal');
