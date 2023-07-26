@@ -26,7 +26,6 @@ describe('Test fileUpload', () => {
         const response = await cloudinary.api.delete_resources(['journal/' + imageId], {
             resource_type: 'image'
         });
-        console.log({resp: response});
     });
 
     test('Should return null', async () => {
