@@ -8,7 +8,7 @@ cloudinary.config({
     secure: true
 });
 
-describe('Test fileUpload', function () {
+describe('Test fileUpload', () => {
 
     test('Should upload a file to cloudinary', async () => {
         const imageUrl = 'https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png';
