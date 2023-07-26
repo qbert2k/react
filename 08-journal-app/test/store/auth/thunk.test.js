@@ -1,7 +1,7 @@
-import {checkingAuthentication, startGoogleSignIn} from '../../../src/store/auth/thunks';
+import {checkingAuthentication, startGoogleSignIn, startLoginWithEmailPassword} from '../../../src/store/auth/thunks';
 import {checkingCredentials, login, logout} from '../../../src/store/auth/authSlice';
 import {demoUser} from '../../fixtures/authFixtures';
-import {signInWithGoogle} from '../../../src/firebase/providers';
+import {loginWithEmailPassword, signInWithGoogle} from '../../../src/firebase/providers';
 
 jest.mock('../../../src/firebase/providers');
 
@@ -37,4 +37,15 @@ describe('Test thunk', () => {
         expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
         expect(dispatch).toHaveBeenCalledWith(logout(loginData.errorMessage));
     });
+
+    test('Should call checkingCredentials and login - Happy Path', async () => {
+        const loginData = {ok: true, ...demoUser};
+        const formData = {email: demoUser.email, password: '123456'};
+        await loginWithEmailPassword.mockResolvedValue(loginData);
+
+        await startLoginWithEmailPassword(formData)(dispatch);
+
+        expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
+        expect(dispatch).toHaveBeenCalledWith(login(loginData));
+    })
 });
