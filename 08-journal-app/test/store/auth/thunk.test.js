@@ -1,5 +1,5 @@
 import {checkingAuthentication, startGoogleSignIn} from '../../../src/store/auth/thunks';
-import {checkingCredentials, login} from '../../../src/store/auth/authSlice';
+import {checkingCredentials, login, logout} from '../../../src/store/auth/authSlice';
 import {demoUser} from '../../fixtures/authFixtures';
 import {signInWithGoogle} from '../../../src/firebase/providers';
 
@@ -18,7 +18,7 @@ describe('Test thunk', () => {
         expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
     })
 
-    test('Should call checkingCredentials and login - Happy path', async () => {
+    test('Should call checkingCredentials and login - Happy Path', async () => {
         const loginData = {ok: true, ...demoUser};
         await signInWithGoogle.mockResolvedValue(loginData);
 
@@ -26,5 +26,15 @@ describe('Test thunk', () => {
 
         expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
         expect(dispatch).toHaveBeenCalledWith(login(loginData));
+    });
+
+    test('Should call checkingCredentials and login - Error Message', async () => {
+        const loginData = {ok: false, errorMessage: 'Error Message!!!'};
+        await signInWithGoogle.mockResolvedValue(loginData);
+
+        await startGoogleSignIn()(dispatch);
+
+        expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
+        expect(dispatch).toHaveBeenCalledWith(logout(loginData.errorMessage));
     });
 });
