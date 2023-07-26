@@ -7,7 +7,7 @@ import {
 import {checkingCredentials, login, logout} from '../../../src/store/auth/authSlice';
 import {demoUser} from '../../fixtures/authFixtures';
 import {loginWithEmailPassword, logoutFirebase, signInWithGoogle} from '../../../src/firebase/providers';
-import {clearNotesLogout} from "../../../src/store/journal/index.js";
+import {clearNotesLogout} from "../../../src/store/journal/journalSlice";
 
 jest.mock('../../../src/firebase/providers');
 
