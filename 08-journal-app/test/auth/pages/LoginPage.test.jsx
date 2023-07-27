@@ -1,7 +1,7 @@
 import {Provider} from 'react-redux';
 import {MemoryRouter} from 'react-router-dom';
 import {configureStore} from '@reduxjs/toolkit';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, getByRole, render, screen} from '@testing-library/react';
 import {LoginPage} from '../../../src/auth/pages';
 import {authSlice} from '../../../src/store/auth';
 import {notAuthenticatedState} from '../../fixtures/authFixtures';
@@ -47,5 +47,27 @@ describe('Test <LoginPage/>', function () {
         fireEvent.click(googleButton);
 
         expect(mockStartGoogleSignIn).toHaveBeenCalled();
+    });
+
+    test('Should call startStartLoginWithEmailPassword on form submit', () => {
+        const email = 'javier.rojas.blum@gmail.com';
+        const password = '123456';
+
+        render(
+            <Provider store={store}>
+                <MemoryRouter>
+                    <LoginPage/>
+                </MemoryRouter>
+            </Provider>
+        );
+
+        const emailField = screen.getByRole('textbox', {name: 'Email'});
+        fireEvent.change(emailField, {target: {name: 'email', value: email}});
+
+        const passwordField = screen.getByTestId('Password');
+        fireEvent.change(passwordField, {target: {name: 'password', value: password}});
+
+        const submitForm = screen.getByLabelText('submitForm');
+        fireEvent.submit(submitForm);
     });
 });

@@ -35,6 +35,7 @@ export const LoginPage = () => {
     return (
         <AuthLayout title="Login">
             <form onSubmit={onSubmit}
+                  aria-label="submitForm"
                   className="animate__animated animate__fadeIn animate__faster">
                 <Grid container>
                     <Grid item xs={12} sx={{mt: 2}}>
@@ -52,6 +53,9 @@ export const LoginPage = () => {
                                    placeholder="Password"
                                    fullWidth
                                    name="password"
+                                   inputProps={{
+                                       "data-testid": 'Password'
+                                   }}
                                    value={password}
                                    onChange={onInputChange}/>
                     </Grid>
