@@ -76,6 +76,7 @@ export const LoginPage = () => {
 
                         <Grid item xs={12} sm={6}>
                             <Button variant="contained"
+                                    aria-label="googleButton"
                                     onClick={onGoogleSignIn}
                                     disabled={isAuthenticating}
                                     fullWidth>
