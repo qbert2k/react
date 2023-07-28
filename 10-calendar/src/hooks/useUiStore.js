@@ -5,12 +5,18 @@ export const useUiStore = () => {
     const dispatch = useDispatch();
     const {isDateModalOpen} = useSelector(state => state.ui);
 
-    const openDateModal = ()=>{
+    const openDateModal = () => {
         dispatch(onOpenDateModal());
     }
 
-    const closeDateModal= ()=>{
+    const closeDateModal = () => {
         dispatch(onCloseDateModal());
+    }
+
+    const toggleDateModal = () => {
+        (isDateModalOpen)
+            ? closeDateModal()
+            : openDateModal();
     }
 
     return {
@@ -20,5 +26,6 @@ export const useUiStore = () => {
         // Methods
         openDateModal,
         closeDateModal,
+        toggleDateModal,
     };
 }
