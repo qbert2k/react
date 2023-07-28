@@ -6,8 +6,9 @@ import {getMessagesES, localizer} from '../../helpers';
 import {useCalendarStore, useUiStore} from '../../hooks';
 
 export const CalendarPage = () => {
-    const {events} = useCalendarStore();
     const {openDateModal} = useUiStore();
+    const {events} = useCalendarStore();
+
     const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'week');
 
     const eventStyleGetter = (event, start, end, isSelected) => {
