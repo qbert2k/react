@@ -57,7 +57,6 @@ export const CalendarModal = () => {
     };
 
     const onCloseModal = () => {
-        console.log('onCloseModal');
         closeDateModal();
     };
 
