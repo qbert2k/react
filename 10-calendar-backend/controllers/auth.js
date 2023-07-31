@@ -4,7 +4,7 @@ const createUser = (req, res = response) => {
     const {name, email, password} = req.body;
 
     if (name.length < 5) {
-        return res.json({
+        return res.status(400).json({
             ok: true,
             msg: 'name should be at least 5 characters',
         });
