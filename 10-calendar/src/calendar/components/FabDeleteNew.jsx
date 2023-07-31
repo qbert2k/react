@@ -1,16 +1,15 @@
-import {useCalendarStore, useUiStore} from '../../hooks';
-import {addHours} from 'date-fns';
+import {useCalendarStore} from '../../hooks';
 
 export const FabDeleteNew = () => {
-    const {} = useCalendarStore();
+    const {deleteEvent} = useCalendarStore();
 
-    const handleClickNew = () => {
-
+    const handleDelete = () => {
+        deleteEvent();
     };
 
     return (
         <button className="btn btn-danger fab-danger"
-                onClick={handleClickNew}>
+                onClick={handleDelete}>
             <i className="fas fa-trash-alt"></i>
         </button>
     );
