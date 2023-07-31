@@ -27,6 +27,7 @@ npm init -y
 ```shell
 npm i express
 npm i dotenv
+npm i express-validator
 ```
 
 Global:
