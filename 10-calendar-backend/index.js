@@ -1,12 +1,15 @@
 const express = require('express');
 require('dotenv').config();
 
-console.log(process.env);
+//console.log(process.env);
 
 const app = express();
 
 // Public
 app.use(express.static('public'));
+
+// Middlewares
+app.use(express.json());
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
