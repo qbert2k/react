@@ -26,6 +26,7 @@ npm init -y
 
 ```shell
 npm i express
+npm i dotenv
 ```
 
 Global:
