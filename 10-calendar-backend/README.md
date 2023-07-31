@@ -1,0 +1,35 @@
+# Calendar Backend
+
+## Run backend
+
+Development:
+
+```shell
+npm run dev
+```
+
+Production:
+
+```shell
+npm start
+```
+
+## Start from scratch
+
+```shell
+mkdir 10-calendar-backend
+cd 10-calendar-backend
+npm init -y
+```
+
+### Dependencies
+
+```shell
+npm i express
+```
+
+Global:
+
+```shell
+sudo npm i nodemon -g
+```
