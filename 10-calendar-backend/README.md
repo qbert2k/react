@@ -28,6 +28,7 @@ npm init -y
 npm i express
 npm i dotenv
 npm i express-validator
+npm i mongoose
 ```
 
 Global:
