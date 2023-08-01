@@ -32,6 +32,7 @@ npm i express-validator
 npm i mongoose
 npm i bcryptjs
 npm i jsonwebtoken
+npm i cors
 ```
 
 Global:
