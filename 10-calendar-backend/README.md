@@ -5,6 +5,7 @@
 Development:
 
 ```shell
+npm install
 npm run dev
 ```
 
@@ -30,6 +31,7 @@ npm i dotenv
 npm i express-validator
 npm i mongoose
 npm i bcryptjs
+npm i jsonwebtoken
 ```
 
 Global:
