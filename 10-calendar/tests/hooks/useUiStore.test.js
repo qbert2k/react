@@ -1,18 +1,18 @@
 import {Provider} from 'react-redux';
-import {renderHook} from '@testing-library/react';
+import {act, renderHook} from '@testing-library/react';
 import {configureStore} from '@reduxjs/toolkit';
 import {useUiStore} from '../../src/hooks';
 import {uiSlice} from '../../src/store';
 
-const getMockStore = (initialState) => {
+const getMockStore = ( initialState ) => {
     return configureStore({
         reducer: {
             ui: uiSlice.reducer
         },
-        preLoadedState: {
-            ui: {...initialState}
+        preloadedState: {
+            ui: { ...initialState }
         }
-    });
+    })
 };
 
 describe('Test useUiStore', () => {
@@ -30,5 +30,50 @@ describe('Test useUiStore', () => {
             closeDateModal: expect.any(Function),
             toggleDateModal: expect.any(Function)
         });
+    });
+
+    test('should set isDateModelOpen to true', () => {
+        const mockStore = getMockStore({isDateModalOpen: false});
+        const {result} = renderHook(() => useUiStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+        const {openDateModal} = result.current;
+
+        act(() => {
+            openDateModal();
+        });
+
+        expect(result.current.isDateModalOpen).toBeTruthy();
+    });
+
+    test('should set isDateModelOpen to false', () => {
+        const mockStore = getMockStore({isDateModalOpen: true});
+        const {result} = renderHook(() => useUiStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+        const {closeDateModal} = result.current;
+
+        act(() => {
+            closeDateModal();
+        });
+
+        expect(result.current.isDateModalOpen).toBeFalsy();
+    });
+
+    test('should toggle isDateModelOpen', () => {
+        const mockStore = getMockStore({isDateModalOpen: true});
+        const {result} = renderHook(() => useUiStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+
+        act(() => {
+            result.current.toggleDateModal();
+        });
+        expect(result.current.isDateModalOpen).toBeFalsy();
+
+        act(() => {
+            result.current.toggleDateModal();
+        });
+        expect(result.current.isDateModalOpen).toBeTruthy();
     });
 });
