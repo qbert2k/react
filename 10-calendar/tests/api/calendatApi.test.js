@@ -2,11 +2,11 @@ import {calendarApi} from '../../src/api';
 
 describe('Test CalendarApi', () => {
 
-    test('Should have the default configuration', () => {
+    test('should have the default configuration', () => {
         expect(calendarApi.defaults.baseURL).toBe(process.env.VITE_API_URL);
     });
 
-    test('Should have x-token in the http request header', async() => {
+    test('should have x-token in the http request header', async () => {
         const token = 'ABC-123-XYZ';
         localStorage.setItem('token', token);
 
