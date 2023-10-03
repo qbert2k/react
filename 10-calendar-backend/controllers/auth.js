@@ -65,7 +65,7 @@ const loginUser = async (req, res = response) => {
 
         res.json({
             ok: true,
-            uid: user.uid,
+            uid: user.id,
             email: user.email,
             name: user.name,
             token

@@ -1,8 +1,10 @@
 import {Provider} from 'react-redux';
-import {renderHook} from '@testing-library/react';
+import {act, renderHook} from '@testing-library/react';
 import {configureStore} from '@reduxjs/toolkit';
 import {authSlice} from '../../src/store';
 import {useAuthStore} from '../../src/hooks';
+import {authenticatedState, initialState, unauthenticatedState} from '../fixtures/authStates';
+import {testUserCredentials} from '../fixtures/testUser';
 
 const getMockStore = (initialState) => {
     return configureStore({
@@ -18,25 +20,36 @@ const getMockStore = (initialState) => {
 describe('Test useAuthStore', () => {
 
     test('should return the default values', () => {
-        const mockStore = getMockStore({
-            status: 'checking',
-            user: {},
-            errorMessage: undefined
-        });
+        const mockStore = getMockStore({...initialState});
 
-        const {result} = renderHook(            ()=> useAuthStore(),{
+        const {result} = renderHook(() => useAuthStore(), {
             wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
         });
 
-        console.log(result.current);
         expect(result.current).toEqual({
-            status: 'checking',
-            user: {},
-            errorMessage: undefined,
+            ...initialState,
             checkAuthToken: expect.any(Function),
             startLogin: expect.any(Function),
             startRegister: expect.any(Function),
             startLogout: expect.any(Function)
         });
     });
-})
+
+    test('should login', async () => {
+        localStorage.clear();
+        const mockStore = getMockStore({...unauthenticatedState});
+
+        const {result} = renderHook(() => useAuthStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+
+        await act(async () => {
+            await result.current.startLogin(testUserCredentials);
+        });
+
+        const {errorMessage, status, user} = result.current;
+        expect({errorMessage, status, user}).toEqual(authenticatedState);
+        expect(localStorage.getItem('token')).toEqual(expect.any((String)));
+        expect(localStorage.getItem('token-init-date')).toEqual(expect.any((String)));
+    });
+});

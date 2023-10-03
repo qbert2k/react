@@ -1,4 +1,4 @@
-import {testUserCredentials} from './testUser';
+import {testUser} from './testUser';
 
 export const initialState = {
     status: 'checking',
@@ -9,8 +9,8 @@ export const initialState = {
 export const authenticatedState = {
     status: 'authenticated',
     user: {
-        uid: testUserCredentials.uid,
-        name: testUserCredentials.name
+        uid: testUser.uid,
+        name: testUser.name
     },
     errorMessage: undefined
 };
