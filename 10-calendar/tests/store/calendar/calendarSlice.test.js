@@ -75,6 +75,9 @@ describe('Test calendarSlice', () => {
         expect(state.events.length).toBe(events.length);
         expect(state.events).toContain(events[0]);
         expect(state.events).toContain(events[1]);
+
+        const newState = calendarSlice.reducer(state, onLoadEvents(events));
+        expect(newState.events.length).toBe(state.events.length);
     });
 
     test('should clean the state', () => {
