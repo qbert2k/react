@@ -1,12 +1,14 @@
-# React Tests
+# React Tutorial
 
-# Create react project vite
+## Getting Started
+
+### Create react project vite
 
 ```shell
 yarn create vite
 ```
 
-# Setup Windows
+### Setup Windows
 
 Install yarn
 
@@ -20,7 +22,7 @@ Run in powershell as administrator
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 ```
 
-# Setup Linux
+### Setup Linux
 
 Disabling IPv6
 
@@ -41,3 +43,15 @@ Run App
 ```shell
 yarn dev
 ```
+
+## Useful Links
+
+https://react.dev/learn/tutorial-tic-tac-toe
+
+https://react-redux.js.org/introduction/getting-started
+
+https://jestjs.io/docs/getting-started
+
+https://blog.logrocket.com/top-10-react-component-libraries-for-2020/
+
+https://www.youtube.com/watch?v=dNxaP_BTtwQ&list=PLCKuOXG0bPi26-eawizqyLOgM7j66H_4M
