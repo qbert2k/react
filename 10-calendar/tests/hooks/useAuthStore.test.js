@@ -149,4 +149,20 @@ describe('Test useAuthStore', () => {
         const {errorMessage, status, user} = result.current;
         expect({errorMessage, status, user}).toEqual(unauthenticatedState);
     });
+
+    test('checkAuthToken should authenticate the user when there is a token', async () => {
+        const {data} = await calendarApi.post('/auth', testUserCredentials);
+        localStorage.setItem('token', data.token);
+        const mockStore = getMockStore({...initialState});
+        const {result} = renderHook(() => useAuthStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+
+        await act(async () => {
+            await result.current.checkAuthToken();
+        });
+
+        const {errorMessage, status, user} = result.current;
+        expect({errorMessage, status, user}).toEqual(authenticatedState);
+    });
 });
