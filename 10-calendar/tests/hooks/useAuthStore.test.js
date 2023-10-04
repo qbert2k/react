@@ -112,4 +112,41 @@ describe('Test useAuthStore', () => {
 
         spy.mockRestore();
     });
+
+    test('should fail when creating a new user', async () => {
+        const mockStore = getMockStore({...unauthenticatedState});
+        const {result} = renderHook(() => useAuthStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+
+        await act(async () => {
+            await result.current.startRegister({
+                ...testUserCredentials,
+                name: 'Test User',
+            });
+        });
+
+        const {errorMessage, status, user} = result.current;
+        expect({errorMessage, status, user}).toEqual({
+            ...unauthenticatedState,
+            errorMessage: 'User already exists'
+        });
+        await waitFor(
+            () => expect(result.current.errorMessage).toBe(undefined)
+        );
+    });
+
+    test('checkAuthToken should fail when there is no token', async () => {
+        const mockStore = getMockStore({...initialState});
+        const {result} = renderHook(() => useAuthStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+
+        await act(async () => {
+            await result.current.checkAuthToken();
+        });
+
+        const {errorMessage, status, user} = result.current;
+        expect({errorMessage, status, user}).toEqual(unauthenticatedState);
+    });
 });
