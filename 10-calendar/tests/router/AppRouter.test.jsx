@@ -4,6 +4,9 @@ import {useAuthStore} from '../../src/hooks/useAuthStore';
 import {AppRouter} from '../../src/router';
 
 jest.mock('../../src/hooks/useAuthStore');
+jest.mock('../../src/calendar/pages/CalendarPage', () => ({
+    CalendarPage: () => <h1>Calendar Page Mock</h1>
+}));
 
 describe('Test AppRouter', () => {
 
@@ -37,6 +40,22 @@ describe('Test AppRouter', () => {
         );
 
         expect(screen.getByText('Log In')).toBeTruthy();
+        expect(container).toMatchSnapshot();
+    });
+
+    test('should show the calendar when authenticated', () => {
+        useAuthStore.mockReturnValue({
+            status: 'authenticated',
+            checkAuthToken: mockCheckAuthToken
+        });
+
+        const {container} = render(
+            <MemoryRouter initialEntries={['/something/another/path']}>
+                <AppRouter/>
+            </MemoryRouter>
+        );
+
+        expect(screen.getByText('Calendar Page Mock')).toBeTruthy();
         expect(container).toMatchSnapshot();
     });
 });
