@@ -5,6 +5,7 @@ import {authSlice} from '../../src/store';
 import {useAuthStore} from '../../src/hooks';
 import {authenticatedState, initialState, unauthenticatedState} from '../fixtures/authStates';
 import {testUserCredentials} from '../fixtures/testUser';
+import {calendarApi} from "../../src/api/index.js";
 
 const getMockStore = (initialState) => {
     return configureStore({
@@ -18,6 +19,8 @@ const getMockStore = (initialState) => {
 };
 
 describe('Test useAuthStore', () => {
+
+    beforeEach(() => localStorage.clear());
 
     test('should return the default values', () => {
         const mockStore = getMockStore({...initialState});
@@ -36,7 +39,6 @@ describe('Test useAuthStore', () => {
     });
 
     test('should login', async () => {
-        localStorage.clear();
         const mockStore = getMockStore({...unauthenticatedState});
         const {result} = renderHook(() => useAuthStore(), {
             wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
@@ -53,7 +55,6 @@ describe('Test useAuthStore', () => {
     });
 
     test('should fail when login', async () => {
-        localStorage.clear();
         const mockStore = getMockStore({...unauthenticatedState});
         const {result} = renderHook(() => useAuthStore(), {
             wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
@@ -76,5 +77,39 @@ describe('Test useAuthStore', () => {
         await waitFor(
             () => expect(result.current.errorMessage).toBe(undefined)
         );
+    });
+
+    test('should create an user', async () => {
+        const newUser = {
+            email: 'test.user@test.com',
+            password: '123456879',
+            name: 'Test User'
+        };
+        const mockStore = getMockStore({...unauthenticatedState});
+        const {result} = renderHook(() => useAuthStore(), {
+            wrapper: ({children}) => <Provider store={mockStore}>{children}</Provider>
+        });
+        const spy = jest.spyOn(calendarApi, 'post')
+            .mockReturnValue({
+                data: {
+                    ok: true,
+                    uid: '123456789',
+                    name: 'Test User',
+                    token: 'THE-TOKEN'
+                }
+            });
+
+        await act(async () => {
+            await result.current.startRegister(newUser);
+        });
+
+        const {errorMessage, status, user} = result.current;
+        expect({errorMessage, status, user}).toEqual({
+            errorMessage: undefined,
+            status: 'authenticated',
+            user: {name: 'Test User', uid: '123456789'}
+        });
+
+        spy.mockRestore();
     });
 });
