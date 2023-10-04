@@ -24,4 +24,19 @@ describe('Test <FabDelete/>', () => {
         expect(btn.classList).toContain('fab-danger');
         expect(btn.style.display).toBe('none');
     });
+
+    test('should show the button if there is an active event', () => {
+        useCalendarStore.mockReturnValue({
+            hasEventSelected: true
+        });
+        useUiStore.mockReturnValue({
+            isDateModalOpen: false
+        });
+
+        render(<FabDelete/>);
+        screen.debug();
+
+        const btn = screen.getByLabelText('btn-delete');
+        expect(btn.style.display).toBe('');
+    });
 });
