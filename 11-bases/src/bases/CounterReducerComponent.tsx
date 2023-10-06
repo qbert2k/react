@@ -17,6 +17,8 @@ type CounterAction =
     | { type: 'reset' };
 
 const counterReducer = (state: CounterState, action: CounterAction): CounterState => {
+    const {counter, changes} = state;
+
     switch (action.type) {
         case 'reset':
             return {
@@ -26,9 +28,9 @@ const counterReducer = (state: CounterState, action: CounterAction): CounterStat
             };
         case "increaseBy":
             return {
-                counter: state.counter + action.payload.value,
-                previous: state.counter,
-                changes: state.changes + 1
+                counter: counter + action.payload.value,
+                previous: counter,
+                changes: changes + 1
             }
         default:
             return state;
@@ -43,8 +45,8 @@ export const CounterReducerComponent = () => {
         dispatch({type: 'reset'});
     }
 
-    const increaseBy = (value: number = 1): void => {
-        dispatch({type: 'increaseBy', payload: {value: value}});
+    const increaseBy = (value: number): void => {
+        dispatch({type: 'increaseBy', payload: {value}});
     };
 
     return (
