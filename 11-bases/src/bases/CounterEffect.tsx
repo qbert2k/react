@@ -7,9 +7,7 @@ export const CounterEffect = () => {
     const [counter, setCounter] = useState(5);
 
     const handleClick = () => {
-        if (counter < MAX_COUNT) {
-            setCounter(prev => prev + 1);
-        }
+        setCounter(prev => Math.min(prev + 1, MAX_COUNT));
     }
 
     useEffect(() => {
