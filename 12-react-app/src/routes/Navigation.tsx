@@ -2,6 +2,7 @@ import {Suspense} from "react";
 import {BrowserRouter, Navigate, NavLink, Route, Routes} from "react-router-dom";
 import {nestedRoutes, routes} from "./routes";
 import logo from "../logo.svg";
+import {ShoppingPage} from "../02-component-patterns/pages/ShoppingPage";
 
 export const Navigation = () => {
     return (
@@ -30,6 +31,12 @@ export const Navigation = () => {
                                 <NavLink to="/users"
                                          className={({isActive}) => isActive ? 'nav-active' : ''}>
                                     Users
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/shopping"
+                                         className={({isActive}) => isActive ? 'nav-active' : ''}>
+                                    Shopping
                                 </NavLink>
                             </li>
                         </ul>
@@ -71,6 +78,7 @@ export const Navigation = () => {
                         <Route path="about" element={<h1>About Page</h1>}/>
                         <Route path="users" element={<h1>Users Page</h1>}/>
                         <Route path="home" element={<h1>Home Page</h1>}/>
+                        <Route path="shopping" element={<ShoppingPage/>}/>
 
                         {
                             routes.map(({path, Component}) => (
