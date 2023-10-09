@@ -1,10 +1,10 @@
 import {LazyPage1, LazyPage2, LazyPage3} from "../01-lazyload/pages";
 
 interface Route {
-    to: String;
-    path: String;
+    to: string;
+    path: string;
     Component: () => JSX.Element;
-    name: String;
+    name: string;
 }
 
 export const routes: Route[] = [
