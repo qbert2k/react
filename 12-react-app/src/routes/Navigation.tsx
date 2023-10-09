@@ -1,6 +1,6 @@
 import {Suspense} from "react";
 import {BrowserRouter, Navigate, NavLink, Route, Routes} from "react-router-dom";
-import {routes} from "./routes";
+import {nestedRoutes, routes} from "./routes";
 import logo from "../logo.svg";
 
 export const Navigation = () => {
@@ -10,6 +10,9 @@ export const Navigation = () => {
                 <div className="main-layout">
                     <nav>
                         <img src={logo} alt="Logo"/>
+
+                        <hr/>
+
                         <ul>
                             <li>
                                 <NavLink to="/home"
@@ -29,9 +32,14 @@ export const Navigation = () => {
                                     Users
                                 </NavLink>
                             </li>
+                        </ul>
+
+                        <hr/>
+
+                        <ul>
                             {
                                 routes.map(({to, path, name}) => (
-                                    <li key={path}>
+                                    <li key={to}>
                                         <NavLink to={to}
                                                  className={({isActive}) => isActive ? 'nav-active' : ''}>
                                             {name}
@@ -40,6 +48,23 @@ export const Navigation = () => {
                                 ))
                             }
                         </ul>
+
+                        <hr/>
+
+                        <ul>
+                            {
+                                nestedRoutes.map(({to, path, name}) => (
+                                    <li key={to}>
+                                        <NavLink to={to}
+                                                 className={({isActive}) => isActive ? 'nav-active' : ''}>
+                                            {name}
+                                        </NavLink>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+
+                        <hr/>
                     </nav>
 
                     <Routes>
@@ -55,7 +80,15 @@ export const Navigation = () => {
                             ))
                         }
 
-                        <Route path="/*" element={<Navigate to="/home" replace/>}/>
+                        {
+                            nestedRoutes.map(({path, Component}) => (
+                                <Route key={path}
+                                       path={path}
+                                       element={<Component/>}/>
+                            ))
+                        }
+
+                        <Route path="/*" element={<Navigate to={nestedRoutes[0].to} replace/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
