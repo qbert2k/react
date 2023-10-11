@@ -28,7 +28,7 @@ export const ProductTitle = ({title}: { title: string }) => {
 
 interface ProductButtonsProps {
     counter: number;
-    increaseBy: any;
+    increaseBy: (value: number) => void;
 }
 
 export const ProductButtons = ({counter, increaseBy}: ProductButtonsProps) => {
@@ -55,11 +55,8 @@ export const ProductCard = ({product}: Props) => {
 
     return (
         <div className={styles.productCard}>
-
             <ProductImage img={product.img}/>
-
             <ProductTitle title={product.title}/>
-
             <ProductButtons counter={counter} increaseBy={increaseBy}/>
         </div>
     );
