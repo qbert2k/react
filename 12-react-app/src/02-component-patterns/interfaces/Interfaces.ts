@@ -1,4 +1,4 @@
-import {ReactElement} from "react";
+import {JSX, ReactElement} from "react";
 
 export interface ProductCardProps {
     product: Product;
