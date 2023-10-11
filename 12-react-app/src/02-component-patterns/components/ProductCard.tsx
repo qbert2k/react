@@ -1,6 +1,6 @@
-import styles from '../styles/styles.module.css';
-import noImage from '../assets/no-image.jpg';
 import {useProduct} from "../hooks/useProduct";
+import styles from "../styles/styles.module.css";
+import noImage from "../assets/no-image.jpg";
 
 interface Props {
     product: Product;
