@@ -82,9 +82,6 @@ export const ProductCard = ({children, product}: Props) => {
         }}>
             <div className={styles.productCard}>
                 {children}
-                {/*<ProductImage img={product.img}/>*/}
-                {/*<ProductTitle title={product.title}/>*/}
-                {/*<ProductButtons counter={counter} increaseBy={increaseBy}/>*/}
             </div>
         </Provider>
     );
