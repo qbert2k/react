@@ -7,7 +7,7 @@ const product = {
 }
 
 export const ShoppingPage = () => {
-    return  (
+    return (
         <div>
             <h1>Shopping Store</h1>
             <hr/>
@@ -17,9 +17,15 @@ export const ShoppingPage = () => {
                 flexWrap: 'wrap'
             }}>
                 <ProductCard product={product}>
+                    <ProductCard.Image/>
+                    <ProductCard.Title/>
+                    <ProductCard.Buttons/>
+                </ProductCard>
+
+                <ProductCard product={product}>
                     <ProductImage/>
-                    <ProductTitle title={''}/>
-                    <ProductButtons counter={0} increaseBy={()=>{}}/>
+                    <ProductTitle title={'Cafe'}/>
+                    <ProductButtons/>
                 </ProductCard>
             </div>
         </div>
