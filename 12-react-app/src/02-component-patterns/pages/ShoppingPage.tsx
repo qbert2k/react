@@ -1,11 +1,20 @@
 import {ProductButtons, ProductCard, ProductImage, ProductTitle} from "../components";
 import '../styles/custom-styles.css';
+import {Product} from "../interfaces/Interfaces";
 
-const product = {
+const product1 = {
     id: '1',
     title: 'Coffee Mug - Card',
     img: './coffee-mug.png'
 }
+
+const product2 = {
+    id: '2',
+    title: 'Coffee Mug - Meme',
+    img: './coffee-mug2.png'
+}
+
+const products: Product[] = [product1, product2];
 
 export const ShoppingPage = () => {
     return (
@@ -17,14 +26,48 @@ export const ShoppingPage = () => {
                 flexDirection: 'row',
                 flexWrap: 'wrap'
             }}>
-                <ProductCard product={product}
+                {/*--------------------------------------------------------*/}
+
+                <div className="shopping-cart">
+                    <ProductCard product={product1}
+                                 className="bg-dark"
+                                 style={{
+                                     width: "100px"
+                                 }}>
+                        <ProductCard.Image className="custom-image"/>
+                        <ProductCard.Buttons className="custom-buttons"/>
+                    </ProductCard>
+                    <ProductCard product={product2}
+                                 className="bg-dark"
+                                 style={{
+                                     width: "100px"
+                                 }}>
+                        <ProductCard.Image className="custom-image"/>
+                        <ProductCard.Buttons className="custom-buttons"/>
+                    </ProductCard>
+                </div>
+
+                {
+                    products.map(product => (
+                        <ProductCard product={product}
+                                     className="bg-dark">
+                            <ProductCard.Image className="custom-image"/>
+                            <ProductCard.Title title={'Cafecito Valdez'} className="text-white text-bold"/>
+                            <ProductCard.Buttons className="custom-buttons"/>
+                        </ProductCard>
+                    ))
+                }
+
+                {/*--------------------------------------------------------*/}
+
+                <ProductCard product={product1}
                              className="bg-dark">
                     <ProductCard.Image className="custom-image"/>
                     <ProductCard.Title title={'Cafecito Valdez'} className="text-white text-bold"/>
                     <ProductCard.Buttons className="custom-buttons"/>
                 </ProductCard>
 
-                <ProductCard product={product}
+                <ProductCard product={product1}
                              className="bg-dark">
                     <ProductImage className="custom-image"
                                   style={{
@@ -34,13 +77,13 @@ export const ShoppingPage = () => {
                     <ProductButtons className="custom-buttons"/>
                 </ProductCard>
 
-                <ProductCard product={product}>
+                <ProductCard product={product1}>
                     <ProductImage/>
                     <ProductTitle/>
                     <ProductButtons/>
                 </ProductCard>
 
-                <ProductCard product={product}
+                <ProductCard product={product1}
                              style={{
                                  backgroundColor: '#70D1F8'
                              }}>
