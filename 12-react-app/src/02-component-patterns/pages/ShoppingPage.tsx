@@ -25,8 +25,8 @@ export const ShoppingPage = () => {
 
     const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({});
 
-    const onProductCountChange = () => {
-        console.log('onProductCountChange');
+    const onProductCountChange = ({count, product}: { count: number, product: Product }) => {
+        console.log('onProductCountChange', count, product);
     }
 
     return (
@@ -46,7 +46,7 @@ export const ShoppingPage = () => {
                                  style={{
                                      width: "100px"
                                  }}
-                                 onChange={() => onProductCountChange()}>
+                                 onChange={onProductCountChange}>
                         <ProductCard.Image className="custom-image"/>
                         <ProductCard.Buttons className="custom-buttons"/>
                     </ProductCard>
@@ -54,7 +54,8 @@ export const ShoppingPage = () => {
                                  className="bg-dark"
                                  style={{
                                      width: "100px"
-                                 }}>
+                                 }}
+                                 onChange={onProductCountChange}>
                         <ProductCard.Image className="custom-image"/>
                         <ProductCard.Buttons className="custom-buttons"/>
                     </ProductCard>
@@ -65,7 +66,7 @@ export const ShoppingPage = () => {
                         <ProductCard key={product.id}
                                      product={product}
                                      className="bg-dark"
-                                     onChange={() => onProductCountChange()}>
+                                     onChange={onProductCountChange}>
                             <ProductCard.Image className="custom-image"/>
                             <ProductCard.Title title={'Cafecito Valdez'} className="text-white text-bold"/>
                             <ProductCard.Buttons className="custom-buttons"/>
@@ -76,14 +77,16 @@ export const ShoppingPage = () => {
                 {/*--------------------------------------------------------*/}
 
                 <ProductCard product={product1}
-                             className="bg-dark">
+                             className="bg-dark"
+                             onChange={onProductCountChange}>
                     <ProductCard.Image className="custom-image"/>
                     <ProductCard.Title title={'Cafecito Valdez'} className="text-white text-bold"/>
                     <ProductCard.Buttons className="custom-buttons"/>
                 </ProductCard>
 
                 <ProductCard product={product1}
-                             className="bg-dark">
+                             className="bg-dark"
+                             onChange={onProductCountChange}>
                     <ProductImage className="custom-image"
                                   style={{
                                       boxShadow: "10px 10px 10px rgba(150, 150, 150, 0.5)"
@@ -92,7 +95,8 @@ export const ShoppingPage = () => {
                     <ProductButtons className="custom-buttons"/>
                 </ProductCard>
 
-                <ProductCard product={product1}>
+                <ProductCard product={product1}
+                             onChange={onProductCountChange}>
                     <ProductImage/>
                     <ProductTitle/>
                     <ProductButtons/>
@@ -101,7 +105,8 @@ export const ShoppingPage = () => {
                 <ProductCard product={product1}
                              style={{
                                  backgroundColor: '#70D1F8'
-                             }}>
+                             }}
+                             onChange={onProductCountChange}>
                     <ProductImage style={{
                         boxShadow: "10px 10px 10px rgba(0, 0, 0, 0.2)"
                     }}/>
