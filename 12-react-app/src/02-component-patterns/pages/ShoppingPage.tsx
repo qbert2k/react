@@ -7,13 +7,18 @@ const product1: Product = {
     id: '1',
     title: 'Coffee Mug - Card',
     img: './coffee-mug.png'
-}
+};
 
 const product2: Product = {
     id: '2',
     title: 'Coffee Mug - Meme',
     img: './coffee-mug2.png'
-}
+};
+
+const product3: Product = {...product1, id: '3'};
+const product4: Product = {...product1, id: '4'};
+const product5: Product = {...product1, id: '5'};
+const product6: Product = {...product1, id: '6'};
 
 const products: Product[] = [product1, product2];
 
@@ -26,7 +31,12 @@ export const ShoppingPage = () => {
     const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({});
 
     const onProductCountChange = ({count, product}: { count: number, product: Product }) => {
-        console.log('onProductCountChange', count, product);
+        setShoppingCart(oldShoppingCart => {
+            return {
+                ...oldShoppingCart,
+                [product.id]: {...product, count}
+            };
+        });
     }
 
     return (
@@ -76,7 +86,7 @@ export const ShoppingPage = () => {
 
                 {/*--------------------------------------------------------*/}
 
-                <ProductCard product={product1}
+                <ProductCard product={product3}
                              className="bg-dark"
                              onChange={onProductCountChange}>
                     <ProductCard.Image className="custom-image"/>
@@ -84,7 +94,7 @@ export const ShoppingPage = () => {
                     <ProductCard.Buttons className="custom-buttons"/>
                 </ProductCard>
 
-                <ProductCard product={product1}
+                <ProductCard product={product4}
                              className="bg-dark"
                              onChange={onProductCountChange}>
                     <ProductImage className="custom-image"
@@ -95,14 +105,14 @@ export const ShoppingPage = () => {
                     <ProductButtons className="custom-buttons"/>
                 </ProductCard>
 
-                <ProductCard product={product1}
+                <ProductCard product={product5}
                              onChange={onProductCountChange}>
                     <ProductImage/>
                     <ProductTitle/>
                     <ProductButtons/>
                 </ProductCard>
 
-                <ProductCard product={product1}
+                <ProductCard product={product6}
                              style={{
                                  backgroundColor: '#70D1F8'
                              }}
@@ -118,6 +128,13 @@ export const ShoppingPage = () => {
                         justifyContent: "end"
                     }}/>
                 </ProductCard>
+            </div>
+
+            <hr/>
+            <div>
+                <pre>
+                    {JSON.stringify(shoppingCart, null, 5)}
+                </pre>
             </div>
         </div>
     );
