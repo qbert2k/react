@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {ProductButtons, ProductCard, ProductImage, ProductTitle} from "../components";
 import {Product} from "../interfaces/Interfaces";
-import '../styles/custom-styles.css';
+import "../styles/custom-styles.css";
 
 const product1: Product = {
     id: '1',
@@ -25,6 +25,10 @@ export const ShoppingPage = () => {
 
     const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ProductInCart }>({});
 
+    const onProductCountChange = () => {
+        console.log('onProductCountChange');
+    }
+
     return (
         <div>
             <h1>Shopping Store</h1>
@@ -41,7 +45,8 @@ export const ShoppingPage = () => {
                                  className="bg-dark"
                                  style={{
                                      width: "100px"
-                                 }}>
+                                 }}
+                                 onChange={() => onProductCountChange()}>
                         <ProductCard.Image className="custom-image"/>
                         <ProductCard.Buttons className="custom-buttons"/>
                     </ProductCard>
@@ -57,8 +62,10 @@ export const ShoppingPage = () => {
 
                 {
                     products.map(product => (
-                        <ProductCard product={product}
-                                     className="bg-dark">
+                        <ProductCard key={product.id}
+                                     product={product}
+                                     className="bg-dark"
+                                     onChange={() => onProductCountChange()}>
                             <ProductCard.Image className="custom-image"/>
                             <ProductCard.Title title={'Cafecito Valdez'} className="text-white text-bold"/>
                             <ProductCard.Buttons className="custom-buttons"/>
