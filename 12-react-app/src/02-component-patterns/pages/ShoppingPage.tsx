@@ -32,10 +32,15 @@ export const ShoppingPage = () => {
 
     const onProductCountChange = ({count, product}: { count: number, product: Product }) => {
         setShoppingCart(oldShoppingCart => {
-            return {
+
+            let result = {
                 ...oldShoppingCart,
                 [product.id]: {...product, count}
             };
+            if (!count) {
+                delete result[product.id];
+            }
+            return result;
         });
     }
 
