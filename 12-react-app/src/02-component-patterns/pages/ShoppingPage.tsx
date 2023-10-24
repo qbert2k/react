@@ -56,24 +56,24 @@ export const ShoppingPage = () => {
                 {/*--------------------------------------------------------*/}
 
                 <div className="shopping-cart">
-                    <ProductCard product={product1}
-                                 className="bg-dark"
-                                 style={{
-                                     width: "100px"
-                                 }}
-                                 onChange={onProductCountChange}>
-                        <ProductCard.Image className="custom-image"/>
-                        <ProductCard.Buttons className="custom-buttons"/>
-                    </ProductCard>
-                    <ProductCard product={product2}
-                                 className="bg-dark"
-                                 style={{
-                                     width: "100px"
-                                 }}
-                                 onChange={onProductCountChange}>
-                        <ProductCard.Image className="custom-image"/>
-                        <ProductCard.Buttons className="custom-buttons"/>
-                    </ProductCard>
+                    {
+                        Object.entries(shoppingCart).map(([key, productInCart]: [string, ProductInCart]) => (
+                            <ProductCard key={key}
+                                         product={productInCart}
+                                         className="bg-dark"
+                                         style={{
+                                             width: "100px"
+                                         }}
+                                         onChange={onProductCountChange}>
+                                <ProductImage className="custom-image"/>
+                                <ProductButtons className="custom-buttons"
+                                                style={{
+                                                    display: "flex",
+                                                    justifyContent: "center"
+                                                }}/>
+                            </ProductCard>
+                        ))
+                    }
                 </div>
 
                 {
