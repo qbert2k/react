@@ -64,7 +64,8 @@ export const ShoppingPage = () => {
                                          style={{
                                              width: "100px"
                                          }}
-                                         onChange={onProductCountChange}>
+                                         onChange={onProductCountChange}
+                                         value={productInCart.count}>
                                 <ProductImage className="custom-image"/>
                                 <ProductButtons className="custom-buttons"
                                                 style={{
