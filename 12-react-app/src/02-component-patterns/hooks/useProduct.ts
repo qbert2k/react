@@ -18,9 +18,11 @@ export const useProduct = ({onChange, product, value = 0, initialValues}: usePro
             return onChange!({count: value, product});
         }
 
-        if (value > 0 && initialValues?.maxCount == counter) return ;
+        let newValue = Math.max(counter + value, 0);
+        if (initialValues?.maxCount) {
+            newValue = Math.min(newValue, initialValues.maxCount);
+        }
 
-        const newValue = Math.max(counter + value, 0);
         setCounter(newValue);
 
         onChange && onChange({count: newValue, product});
