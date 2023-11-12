@@ -1,4 +1,4 @@
-import {createContext, CSSProperties, ReactElement} from "react";
+import {createContext, CSSProperties, JSX, ReactElement} from "react";
 import {useProduct} from "../hooks/useProduct";
 import {InitialValues, OnChangeArgs, Product, ProductContextProps} from "../interfaces/Interfaces";
 import styles from "../styles/styles.module.css";
@@ -8,7 +8,7 @@ const {Provider} = ProductContext;
 
 export interface Props {
     product: Product;
-    children?: ReactElement | ReactElement[];
+    children?: ReactElement | ReactElement[] | ((message: string) => JSX.Element);
     className?: string;
     style?: CSSProperties;
     onChange?: (args: OnChangeArgs) => void;
@@ -28,7 +28,7 @@ export const ProductCard = ({children, product, className, style, onChange, valu
         }}>
             <div className={`${styles.productCard} ${className}`}
                  style={style}>
-                {children}
+                {(typeof children === 'function') ? children('Hello World') : children}
             </div>
         </Provider>
     );
