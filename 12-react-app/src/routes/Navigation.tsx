@@ -3,6 +3,7 @@ import {BrowserRouter, Navigate, NavLink, Route, Routes} from "react-router-dom"
 import {nestedRoutes, routes} from "./routes";
 import logo from "../logo.svg";
 import {ShoppingPage} from "../02-component-patterns/pages/ShoppingPage";
+import {ShoppingPage2} from "../02-component-patterns/pages/ShoppingPage2";
 
 export const Navigation = () => {
     return (
@@ -37,6 +38,12 @@ export const Navigation = () => {
                                 <NavLink to="/shopping"
                                          className={({isActive}) => isActive ? 'nav-active' : ''}>
                                     Shopping
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/shopping2"
+                                         className={({isActive}) => isActive ? 'nav-active' : ''}>
+                                    Shopping 2
                                 </NavLink>
                             </li>
                         </ul>
@@ -79,6 +86,7 @@ export const Navigation = () => {
                         <Route path="users" element={<h1>Users Page</h1>}/>
                         <Route path="home" element={<h1>Home Page</h1>}/>
                         <Route path="shopping" element={<ShoppingPage/>}/>
+                        <Route path="shopping2" element={<ShoppingPage2/>}/>
 
                         {
                             routes.map(({path, Component}) => (
