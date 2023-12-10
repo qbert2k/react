@@ -40,6 +40,7 @@ export const useProduct = ({onChange, product, value = 0, initialValues}: usePro
 
     return {
         counter,
+        maxCount: initialValues?.maxCount,
         increaseBy
     };
 }
