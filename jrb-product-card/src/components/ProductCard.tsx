@@ -1,4 +1,4 @@
-import {createContext, CSSProperties, JSX, ReactElement} from "react";
+import React, {createContext, CSSProperties, JSX, ReactElement} from "react";
 import {useProduct} from "../hooks/useProduct";
 import {InitialValues, OnChangeArgs, Product, ProductCardHandlers, ProductContextProps} from "../interfaces/Interfaces";
 import styles from "../styles/styles.module.css";
