@@ -1,3 +1,44 @@
+# jrb-product-card
+
+This is a test package for NPM Deployment
+
+### Javier Rojas Blum
+
+## Example
+
+```typescript
+import {ProductCard, ProductImage, ProductTitle, ProductButtons} from 'jrb-product-card';
+```
+
+```typescript
+<ProductCard key={product.id}
+                         product={product}
+                         className="bg-dark text-white"
+                         initialValues={{
+                             count: 4,
+                             maxCount: 10
+                         }}>
+                {
+                    ({count, maxCount, isMaxCountReach, increaseBy, reset}) => (
+                        <>
+                            <ProductImage className="custom-image"
+                                          style={{boxShadow: '10px 10px 10px rgba(0,0,0,0.2)'}}/>
+                            <ProductTitle className="text-bold"/>
+                            <ProductButtons className="custom-buttons"/>
+
+                            <button onClick={reset}>Reset</button>
+                            <button onClick={() => increaseBy(-2)}>-2</button>
+                            {
+                                (!isMaxCountReach && <button onClick={() => increaseBy(2)}>+2</button>)
+                            }
+                            <span>{count} - {maxCount}</span>
+                        </>
+                    )
+                }
+            </ProductCard>
+```
+
+
 # TSDX React User Guide
 
 Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
