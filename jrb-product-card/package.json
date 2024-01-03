@@ -7,6 +7,12 @@
     "dist",
     "src"
   ],
+  "repository": {
+    "url": "https://github.com/qbert2k/react",
+    "type": "git",
+    "directory": "jrb-product-card"
+  },
+  "homepage": "https://github.com/qbert2k",
   "engines": {
     "node": ">=10"
   },
@@ -60,5 +66,9 @@
     "tsdx": "^0.14.1",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
-  }
+  },
+  "keywords": [
+    "product",
+    "card"
+  ]
 }
