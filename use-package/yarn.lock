@@ -6155,6 +6155,11 @@ jiti@^1.19.1:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.0.tgz#7c97f8fe045724e136a397f7340475244156105d"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
 
+jrb-product-card@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/jrb-product-card/-/jrb-product-card-0.0.2.tgz#7163004f2bc0e4f643bb0a64764595b04ce0b9ef"
+  integrity sha512-m531S4YxTCGTAB7pg7EE1fMiajAc4vJ7L4D7V+Xj4MMT/hHAG8rNSok61IJUNt068iVuUfGYRN8Tqx8BfOi2pg==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
