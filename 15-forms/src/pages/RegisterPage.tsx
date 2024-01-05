@@ -5,7 +5,7 @@ import {useForm} from "../hooks/useForm";
 export const RegisterPage = () => {
 
     const {
-        formData, onChange, resetForm,
+        formData, onChange, resetForm, isValidEmail,
         name, email, password1, password2
     } = useForm({
         name: '',
@@ -37,7 +37,9 @@ export const RegisterPage = () => {
                        placeholder="Email"
                        name="email"
                        value={email}
-                       onChange={onChange}/>
+                       onChange={onChange}
+                       className={`${!isValidEmail(email) && 'has-error'}`}/>
+                {!isValidEmail(email) && <span>The email is not valid</span>}
 
                 <input type="password"
                        placeholder="Password"
