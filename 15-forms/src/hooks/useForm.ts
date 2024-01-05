@@ -11,7 +11,11 @@ export const useForm = <T>(initialState: T) => {
             ...prev,
             [name]: value
         }));
-    }
+    };
+
+    const resetForm = () => {
+        setFormData({...initialState});
+    };
 
     return {
         // Properties
@@ -19,6 +23,7 @@ export const useForm = <T>(initialState: T) => {
         formData,
 
         // Methods
-        onChange
+        onChange,
+        resetForm,
     };
 }

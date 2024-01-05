@@ -5,7 +5,7 @@ import {useForm} from "../hooks/useForm";
 export const RegisterPage = () => {
 
     const {
-        formData, onChange,
+        formData, onChange, resetForm,
         name, email, password1, password2
     } = useForm({
         name: '',
@@ -49,9 +49,8 @@ export const RegisterPage = () => {
                        value={password2}
                        onChange={onChange}/>
 
-                <button type="submit">
-                    Create
-                </button>
+                <button type="submit">Create</button>
+                <button type="button" onClick={resetForm}>Reset</button>
             </form>
         </div>
     );
