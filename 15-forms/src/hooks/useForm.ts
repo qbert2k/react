@@ -1,18 +1,13 @@
 import {ChangeEvent, useState} from "react";
 
-export const useForm = () => {
+export const useForm = <T>(initialState: T) => {
 
-    const [registerData, setRegisterData] = useState({
-        name: '',
-        email: '',
-        password1: '',
-        password2: '',
-    });
+    const [formData, setFormData] = useState(initialState);
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
 
-        setRegisterData(prev => ({
+        setFormData(prev => ({
             ...prev,
             [name]: value
         }));
@@ -20,7 +15,8 @@ export const useForm = () => {
 
     return {
         // Properties
-        registerData,
+        ...formData,
+        formData,
 
         // Methods
         onChange

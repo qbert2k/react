@@ -4,13 +4,20 @@ import {useForm} from "../hooks/useForm";
 
 export const RegisterPage = () => {
 
-    const {registerData, onChange} = useForm();
-    const {name, email, password1, password2} = registerData;
+    const {
+        formData, onChange,
+        name, email, password1, password2
+    } = useForm({
+        name: '',
+        email: '',
+        password1: '',
+        password2: '',
+    });
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        console.log(registerData);
+        console.log(formData);
     }
 
     return (
