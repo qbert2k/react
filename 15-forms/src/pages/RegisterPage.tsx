@@ -1,5 +1,5 @@
 import "../styles/styles.css";
-import {ChangeEvent, FormEvent, FormEventHandler, useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 
 export const RegisterPage = () => {
 
