@@ -29,7 +29,9 @@ export const RegisterPage = () => {
                        placeholder="Name"
                        name="name"
                        value={name}
-                       onChange={onChange}/>
+                       onChange={onChange}
+                       className={`${name.trim().length <= 0 && 'has-error'}`}/>
+                {name.trim().length <= 0 && <span>The field is mandatory</span>}
 
                 <input type="email"
                        placeholder="Email"
