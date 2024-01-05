@@ -1,5 +1,5 @@
 import "../styles/styles.css";
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, FormEvent, FormEventHandler, useState} from "react";
 
 export const RegisterPage = () => {
 
@@ -15,17 +15,23 @@ export const RegisterPage = () => {
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
 
-        setRegisterData({
-            ...registerData,
+        setRegisterData(prev => ({
+            ...prev,
             [name]: value
-        });
+        }));
+    }
+
+    const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        console.log(registerData);
     }
 
     return (
         <div>
             <h1>Register Page</h1>
 
-            <form>
+            <form noValidate onSubmit={onSubmit}>
                 <input type="text"
                        placeholder="Name"
                        name="name"
