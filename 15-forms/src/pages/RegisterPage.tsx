@@ -46,12 +46,17 @@ export const RegisterPage = () => {
                        name="password1"
                        value={password1}
                        onChange={onChange}/>
+                {password1.trim().length <= 0 && <span>The field is mandatory</span>}
+                {password1.trim().length < 6 && password1.trim().length > 0 &&
+                    <span>The password must have 6 or more letters</span>}
 
                 <input type="password"
                        name="password2"
                        placeholder="Repeat Password"
                        value={password2}
                        onChange={onChange}/>
+                {password2.trim().length <= 0 && <span>The field is mandatory</span>}
+                {password2.trim().length > 0 && password1 !== password2 && <span>The password must match</span>}
 
                 <button type="submit">Create</button>
                 <button type="button" onClick={resetForm}>Reset</button>
