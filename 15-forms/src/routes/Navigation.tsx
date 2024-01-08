@@ -1,7 +1,14 @@
 import {Suspense} from "react";
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 
-import {FormikAbstractionPage, FormikBasicPage, FormikComponentsPage, FormikYupPage, RegisterPage} from "../pages";
+import {
+    FormikAbstractionPage,
+    FormikBasicPage,
+    FormikComponentsPage,
+    FormikYupPage,
+    RegisterFormikPage,
+    RegisterPage
+} from "../pages";
 
 import logo from "../logo.svg";
 
@@ -46,6 +53,12 @@ export const Navigation = () => {
                                     Formik Abstraction
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/formik-register"
+                                         className={({isActive}) => isActive ? 'nav-active' : ''}>
+                                    Formik Register
+                                </NavLink>
+                            </li>
                         </ul>
 
                         <hr/>
@@ -57,6 +70,7 @@ export const Navigation = () => {
                         <Route path="formik-yup" element={<FormikYupPage/>}/>
                         <Route path="formik-components" element={<FormikComponentsPage/>}/>
                         <Route path="formik-Abstraction" element={<FormikAbstractionPage/>}/>
+                        <Route path="formik-register" element={<RegisterFormikPage/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
