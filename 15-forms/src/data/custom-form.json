@@ -26,9 +26,18 @@
     "label": "Favorite Game",
     "value": "",
     "options": [
-      "Super Smash Bros",
-      "Metal Gear Solid",
-      "Resident Evil Village"
+      {
+        "id": 1001,
+        "label": "Super Smash Bros"
+      },
+      {
+        "id": 1002,
+        "label": "Metal Gear Solid"
+      },
+      {
+        "id": 1003,
+        "label": "Resident Evil Village"
+      }
     ]
   }
 ]
