@@ -2,7 +2,7 @@ import {Suspense} from "react";
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 
 import {
-    DynamicForms,
+    DynamicForm,
     FormikAbstractionPage,
     FormikBasicPage,
     FormikComponentsPage,
@@ -61,9 +61,9 @@ export const Navigation = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dynamic-forms"
+                                <NavLink to="/dynamic-form"
                                          className={({isActive}) => isActive ? 'nav-active' : ''}>
-                                    Dynamic Forms
+                                    Dynamic Form
                                 </NavLink>
                             </li>
                         </ul>
@@ -78,7 +78,7 @@ export const Navigation = () => {
                         <Route path="formik-components" element={<FormikComponentsPage/>}/>
                         <Route path="formik-Abstraction" element={<FormikAbstractionPage/>}/>
                         <Route path="formik-register" element={<RegisterFormikPage/>}/>
-                        <Route path="dynamic-forms" element={<DynamicForms/>}/>
+                        <Route path="dynamic-form" element={<DynamicForm/>}/>
                     </Routes>
                 </div>
             </BrowserRouter>
