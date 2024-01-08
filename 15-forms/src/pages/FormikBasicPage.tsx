@@ -14,7 +14,7 @@ export const FormikBasicPage = () => {
         const errors: FormikErrors<FormValues> = {};
 
         if (!firstName) {
-            errors.firstName =  'Required';
+            errors.firstName = 'Required';
         } else if (firstName.length > 15) {
             errors.firstName = 'Must be 15 characters or less';
         }
@@ -34,11 +34,18 @@ export const FormikBasicPage = () => {
         return errors;
     };
 
-    const {handleChange, handleSubmit, values} = useFormik({
+    const {
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        values,
+        errors,
+        touched
+    } = useFormik({
         initialValues: {
-            firstName: 'Javier',
-            lastName: 'Rojas',
-            email: 'javier.rojas.blum@gmail.com'
+            firstName: '',
+            lastName: '',
+            email: ''
         },
         onSubmit: (values) => {
             console.log(values)
@@ -55,23 +62,25 @@ export const FormikBasicPage = () => {
                 <input type="text"
                        name="firstName"
                        onChange={handleChange}
+                       onBlur={handleBlur}
                        value={values.firstName}/>
-                <span>First Name is required</span>
+                {touched.firstName && errors.firstName && <span>{errors.firstName}</span>}
 
                 <label htmlFor="lastName">Last Name</label>
                 <input type="text"
                        name="lastName"
                        onChange={handleChange}
+                       onBlur={handleBlur}
                        value={values.lastName}/>
-                <span>Last Name is required</span>
+                {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
 
                 <label htmlFor="email">Email Address</label>
                 <input type="email"
                        name="email"
                        onChange={handleChange}
+                       onBlur={handleBlur}
                        value={values.email}/>
-                <span>Email is required</span>
-                <span>Email is not valid</span>
+                {touched.email && errors.email && <span>{errors.email}</span>}
 
                 <button type="submit">Submit</button>
             </form>
