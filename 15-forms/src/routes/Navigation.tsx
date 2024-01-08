@@ -25,25 +25,25 @@ export const Navigation = () => {
                             <li>
                                 <NavLink to="/formik-basic"
                                          className={({isActive}) => isActive ? 'nav-active' : ''}>
-                                    Formic Basic
+                                    Formik Basic
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/formik-yup"
                                          className={({isActive}) => isActive ? 'nav-active' : ''}>
-                                    Formic Yup
+                                    Formik Yup
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/formik-components"
                                          className={({isActive}) => isActive ? 'nav-active' : ''}>
-                                    Formic Components
+                                    Formik Components
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink to="/formik-abstraction"
                                          className={({isActive}) => isActive ? 'nav-active' : ''}>
-                                    Formic Abstraction
+                                    Formik Abstraction
                                 </NavLink>
                             </li>
                         </ul>
