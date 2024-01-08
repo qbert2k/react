@@ -1,13 +1,9 @@
 import {Suspense} from "react";
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 
-import {RegisterPage} from "../pages/RegisterPage";
-import {FormikBasicPage} from "../pages/FormikBasicPage";
+import {FormikAbstractionPage, FormikBasicPage, FormikComponentsPage, FormikYupPage, RegisterPage} from "../pages";
 
 import logo from "../logo.svg";
-import {FormikYupPage} from "../pages/FormikYupPage";
-import {FormikComponentsPage} from "../pages/FormikComponents";
-import {FormikAbstractionPage} from "../pages/FormikAbstraction";
 
 export const Navigation = () => {
     return (
