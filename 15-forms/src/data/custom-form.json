@@ -4,27 +4,47 @@
     "name": "firstName",
     "placeholder": "Juan",
     "label": "First Name",
-    "value": ""
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
   },
   {
     "type": "text",
     "name": "lastName",
     "placeholder": "Perez",
     "label": "Last Name",
-    "value": ""
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
   },
   {
     "type": "email",
     "name": "email",
     "placeholder": "juan.perez@example.com",
     "label": "Email Address",
-    "value": ""
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ]
   },
   {
     "type": "select",
     "name": "favoriteGame",
     "label": "Favorite Game",
     "value": "",
+    "validations": [
+      {
+        "type": "required"
+      }
+    ],
     "options": [
       {
         "id": 1001,
