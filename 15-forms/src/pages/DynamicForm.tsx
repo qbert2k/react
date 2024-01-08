@@ -1,6 +1,6 @@
 import formJson from '../data/custom-form.json';
 import {Form, Formik} from "formik";
-import {MyTextInput} from "../components";
+import {MySelect, MyTextInput} from "../components";
 
 const initialValues: { [key: string]: any } = {};
 
@@ -21,13 +21,29 @@ export const DynamicForm = () => {
                 {
                     ({handleReset}) => (
                         <Form noValidate>
-                            {formJson.map(({type, name, value, label, placeholder}) => {
-                                return <MyTextInput
-                                    key={name}
-                                    type={(type as any)}
-                                    name={name}
-                                    label={label}
-                                    placeholder={placeholder}/>
+                            {formJson.map(({type, name, value, label, placeholder, options}) => {
+                                if (type === 'text' || type === 'password' || type === 'email') {
+                                    return <MyTextInput
+                                        key={name}
+                                        type={(type as any)}
+                                        name={name}
+                                        label={label}
+                                        placeholder={placeholder}/>
+                                } else if (type === 'select') {
+                                    return <MySelect
+                                        key={name}
+                                        label={label}
+                                        name={name}>
+                                        <option value="">Select an option</option>
+                                        {
+                                            options?.map(opt => (
+                                                <option key={opt} value={opt}>{opt}</option>
+                                            ))
+                                        }
+                                    </MySelect>;
+                                }
+
+                                throw new Error(`Type: ${type} is not supported`);
                             })}
 
                             <button type="submit">Submit</button>

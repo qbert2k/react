@@ -19,5 +19,16 @@
     "placeholder": "juan.perez@example.com",
     "label": "Email Address",
     "value": ""
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Favorite Game",
+    "value": "",
+    "options": [
+      "Super Smash Bros",
+      "Metal Gear Solid",
+      "Resident Evil Village"
+    ]
   }
 ]
