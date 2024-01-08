@@ -9,7 +9,7 @@ interface Props {
     [x: string]: any;
 }
 
-export const MyTextInput = ({label, type, ...props}: Props) => {
+export const MyTextInput = ({label, ...props}: Props) => {
 
     const [field] = useField(props);
 
@@ -18,8 +18,7 @@ export const MyTextInput = ({label, type, ...props}: Props) => {
             <label htmlFor={props.id || props.name}>{label}</label>
             <input className="text-input"
                    {...field}
-                   {...props}
-                   type={type === 'email' ? 'text' : type}/>
+                   {...props}/>
             <ErrorMessage name={props.name} component="span"/>
         </>
     );

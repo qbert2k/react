@@ -20,7 +20,7 @@ export const DynamicForm = () => {
                 }}>
                 {
                     ({handleReset}) => (
-                        <Form>
+                        <Form noValidate>
                             {formJson.map(({type, name, value, label, placeholder}) => {
                                 return <MyTextInput
                                     key={name}
