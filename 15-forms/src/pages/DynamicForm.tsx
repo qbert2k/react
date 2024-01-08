@@ -24,6 +24,10 @@ for (const input of formJson) {
                 `The field must be at least ${minValue} characters`);
         }
 
+        if(rule.type === 'email') {
+            schema=schema.email();
+        }
+
         // TODO: more rules....
     }
 
