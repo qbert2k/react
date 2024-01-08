@@ -25,7 +25,7 @@ for (const input of formJson) {
         }
 
         if(rule.type === 'email') {
-            schema=schema.email();
+            schema=schema.email("The field must be a valid email");
         }
 
         // TODO: more rules....
