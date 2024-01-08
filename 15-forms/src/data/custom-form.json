@@ -1,0 +1,23 @@
+[
+  {
+    "type": "text",
+    "name": "firstName",
+    "placeholder": "Juan",
+    "label": "First Name",
+    "value": ""
+  },
+  {
+    "type": "text",
+    "name": "lastName",
+    "placeholder": "Perez",
+    "label": "Last Name",
+    "value": ""
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "juan.perez@example.com",
+    "label": "Email Address",
+    "value": ""
+  }
+]
