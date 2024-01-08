@@ -36,8 +36,8 @@ export const DynamicForm = () => {
                                         name={name}>
                                         <option value="">Select an option</option>
                                         {
-                                            options?.map(opt => (
-                                                <option key={opt.id} value={opt.id}>{opt.label}</option>
+                                            options?.map(({id, label}) => (
+                                                <option key={id} value={id}>{label}</option>
                                             ))
                                         }
                                     </MySelect>;
