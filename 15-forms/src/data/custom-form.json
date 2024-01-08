@@ -8,6 +8,10 @@
     "validations": [
       {
         "type": "required"
+      },
+      {
+        "type": "min",
+        "value": 5
       }
     ]
   },

@@ -18,6 +18,12 @@ for (const input of formJson) {
             schema = schema.required('The field is required');
         }
 
+        if (rule.type === 'min') {
+            const minValue = (rule as any).value || 1;
+            schema = schema.min(minValue,
+                `The field must be at least ${minValue} characters`);
+        }
+
         // TODO: more rules....
     }
 
