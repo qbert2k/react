@@ -1,7 +1,12 @@
 import './MyLabel.css';
 
-export const MyLabel = () => {
+interface Props {
+    label: string;
+    size?: 'normal' | 'h1' | 'h2' | 'h3';
+}
+
+export const MyLabel = ({label, size = 'normal'}: Props) => {
     return (
-        <span className="h1">Hello World</span>
+        <span className={size}>{label}</span>
     );
 }
