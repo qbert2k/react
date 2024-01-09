@@ -17,5 +17,9 @@ npm login
 ```
 
 ```shell
+npm publish --dry-run
+```
+
+```shell
 npm publish
 ```
