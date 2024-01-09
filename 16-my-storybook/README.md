@@ -1,7 +1,21 @@
-# My Storybook
+# My Test Components
 
-## Build
+## Install
+
+```shell
+npm i jrb-my-test-components
+```
+
+## Build & Publish
 
 ```shell
 npm run build
+```
+
+```shell
+npm login
+```
+
+```shell
+npm publish
 ```
