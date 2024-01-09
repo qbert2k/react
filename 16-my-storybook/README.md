@@ -23,3 +23,13 @@ npm publish --dry-run
 ```shell
 npm publish
 ```
+
+## NP - A better npm publish
+
+```shell
+npm i -D np
+```
+
+```shell
+npm run push:npm
+```
