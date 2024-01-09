@@ -23,3 +23,21 @@ export const Basic: Story = {
         label: 'Basic Label'
     }
 };
+
+export const AllCaps: Story = {
+    args: {
+        label: 'All Caps Label'
+    }
+};
+
+export const Secondary: Story = {
+    args: {
+        label: 'Secondary Label'
+    }
+};
+
+export const CustomColor: Story = {
+    args: {
+        label: 'Custom Color Label'
+    }
+};
