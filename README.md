@@ -59,5 +59,4 @@ yarn dev
 ## Examples
 
 - https://qbert2k.github.io/react/gif-expert
-- 
 - https://qbert2k.github.io/react/my-storybook
