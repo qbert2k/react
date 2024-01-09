@@ -26,18 +26,21 @@ export const Basic: Story = {
 
 export const AllCaps: Story = {
     args: {
-        label: 'All Caps Label'
+        label: 'All Caps Label',
+        allCaps: true
     }
 };
 
 export const Secondary: Story = {
     args: {
-        label: 'Secondary Label'
+        label: 'Secondary Label',
+        color: 'text-secondary'
     }
 };
 
 export const CustomColor: Story = {
     args: {
-        label: 'Custom Color Label'
+        label: 'Custom Color Label',
+        fontColor: '#5517ac'
     }
 };
