@@ -7,6 +7,11 @@ const meta = {
     tags: ['autodocs'],
     parameters: {
         layout: 'centered'
+    },
+    argTypes: {
+        size: {
+            control: 'inline-radio'
+        }
     }
 } satisfies Meta<typeof MyLabel>;
 
