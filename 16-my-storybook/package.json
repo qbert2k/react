@@ -1,7 +1,7 @@
 {
   "name": "jrb-my-test-components",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "author": {
     "name": "Javier Rojas Blum",
@@ -30,8 +30,8 @@
     ]
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "scripts": {
     "dev": "npm run storybook",
