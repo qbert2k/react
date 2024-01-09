@@ -1,8 +1,32 @@
 {
-  "name": "my-storybook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "jrb-my-storybook",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
+  "keywords": [
+    "react",
+    "dev",
+    "tutorial"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/qbert2k/react",
+  "repository": {
+    "url": "https://github.com/qbert2k/react",
+    "directory": "16-my-storybook",
+    "type": "git"
+  },
+  "files": [
+    "dist/"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "scripts": {
     "dev": "npm run storybook",
     "build": "tsc && vite build",
@@ -13,10 +37,10 @@
     "chromatic": "npx chromatic --project-token=chpt_aebc63b30b2ce9b"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "@storybook/addon-essentials": "^8.0.0-alpha.8",
     "@storybook/addon-interactions": "^8.0.0-alpha.8",
     "@storybook/addon-links": "^8.0.0-alpha.8",
