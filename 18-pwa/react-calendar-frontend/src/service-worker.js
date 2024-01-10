@@ -85,3 +85,7 @@ self.addEventListener('install', async (event) => {
 
     console.log('PWA Install - end')
 });
+
+self.addEventListener('fetch', (event)=> {
+    console.log(event.request.url);
+});
