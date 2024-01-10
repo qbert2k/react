@@ -1,23 +1,18 @@
 # Frontend MERN - Calendar
 
 ````shell
-yarn
-yarn start
+npm install
+npm run build
 ````
 
 ## Run PWA
 
-Install serve (Windows)
+Install serve
 
 ````shell
 npm install --global serve
 ````
 
-Install serve (OSX / Linux)
-
-````shell
-yarn global add serve
-````
 Run
 
 ````shell
@@ -29,10 +24,6 @@ serve -s build
 
 ````shell
 npx create-react-app my-app --template cra-template-pwa
-````
-
-````shell
-npx create-react-app my-app --template cra-template-pwa-typescript
 ````
 
 ## Links
