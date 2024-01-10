@@ -24,3 +24,17 @@ Run
 serve --version
 serve -s build
 ````
+
+## Making a Progressive Web App
+
+````shell
+npx create-react-app my-app --template cra-template-pwa
+````
+
+````shell
+npx create-react-app my-app --template cra-template-pwa-typescript
+````
+
+## Links
+
+- https://create-react-app.dev/docs/making-a-progressive-web-app/
