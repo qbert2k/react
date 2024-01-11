@@ -86,6 +86,21 @@ self.addEventListener('install', async (event) => {
     console.log('PWA Install - end')
 });
 
-self.addEventListener('fetch', (event)=> {
-    console.log(event.request.url);
+self.addEventListener('fetch', (event) => {
+    if (event.request.url !== 'http://localhost:4000/api/auth/renew') return;
+
+    const resp = fetch(event.request)
+        .then(response => {
+            caches.open('cache-dynamic')
+                .then(cache => cache.put(event.request, response));
+
+            return response.clone();
+        })
+        .catch(err => {
+            console.log('Offline response');
+
+            return caches.match(event.request);
+        });
+
+    event.respondWith(resp);
 });
