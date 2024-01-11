@@ -86,12 +86,14 @@ self.addEventListener('install', async (event) => {
     console.log('PWA Install - end')
 });
 
+const apiOfflineFallbacks = [
+    'http://localhost:4000/api/auth/renew',
+    'http://localhost:4000/api/events'
+];
+
 self.addEventListener('fetch', (event) => {
 
-    if (event.request.url !== 'http://localhost:4000/api/auth/renew'
-        && event.request.url !== 'http://localhost:4000/api/events') {
-        return;
-    }
+    if (!apiOfflineFallbacks.includes(event.request.url)) return;
 
     const resp = fetch(event.request)
         .then(response => {
