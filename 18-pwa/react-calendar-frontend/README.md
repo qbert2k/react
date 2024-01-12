@@ -39,9 +39,14 @@ workbox wizard
 workbox generateSW workbox-config.js
 ```
 
+```shell
+workbox injectManifest
+```
+
 ## Links
 
 - https://create-react-app.dev/docs/making-a-progressive-web-app/
 - https://web.dev/articles/service-worker-lifecycle?hl=es
 - https://developer.chrome.com/docs/workbox/
-- https://developer.chrome.com/docs/workbox/
+- https://developer.chrome.com/docs/workbox/modules/workbox-cli
+- https://developer.chrome.com/docs/workbox/modules/workbox-sw
