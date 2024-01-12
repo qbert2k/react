@@ -29,8 +29,7 @@ registerRoute(
     new NetworkFirst()
 );
 
-// Offline Posts
-const bgSyncPlugin = new BackgroundSyncPlugin('offlinePostQueue', {
+const bgSyncPlugin = new BackgroundSyncPlugin('offlineQueue', {
     maxRetentionTime: 24 * 60 // Retry for max of 24 hours (specified in minutes)
 });
 
@@ -40,4 +39,20 @@ registerRoute(
         plugins: [bgSyncPlugin]
     }),
     'POST'
+);
+
+registerRoute(
+    new RegExp('http://localhost:4000/api/events/'),
+    new NetworkOnly({
+        plugins: [bgSyncPlugin]
+    }),
+    'PUT'
+);
+
+registerRoute(
+    new RegExp('http://localhost:4000/api/events/'),
+    new NetworkOnly({
+        plugins: [bgSyncPlugin]
+    }),
+    'DELETE'
 );
