@@ -43,6 +43,14 @@ workbox generateSW workbox-config.js
 workbox injectManifest
 ```
 
+## Run
+
+```shell
+npm run build
+
+serve -s build
+```
+
 ## Links
 
 - https://create-react-app.dev/docs/making-a-progressive-web-app/
