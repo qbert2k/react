@@ -47,8 +47,9 @@ workbox injectManifest
 
 ```shell
 npm run build
-
 serve -s build
+
+npm run build && serve -s build
 ```
 
 ## Links
@@ -59,3 +60,4 @@ serve -s build
 - https://developer.chrome.com/docs/workbox/modules/workbox-cli
 - https://developer.chrome.com/docs/workbox/modules/workbox-sw
 - https://developer.chrome.com/docs/workbox/modules/workbox-background-sync
+- https://www.npmjs.com/package/react-detect-offline
