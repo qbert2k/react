@@ -50,3 +50,4 @@ workbox injectManifest
 - https://developer.chrome.com/docs/workbox/
 - https://developer.chrome.com/docs/workbox/modules/workbox-cli
 - https://developer.chrome.com/docs/workbox/modules/workbox-sw
+- https://developer.chrome.com/docs/workbox/modules/workbox-background-sync

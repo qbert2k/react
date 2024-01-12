@@ -2,10 +2,12 @@ importScripts(
     'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'
 );
 
+workbox.loadModule('workbox-background-sync');
 workbox.precaching.precacheAndRoute(self.__WB_MANIFEST);
 
 const {registerRoute} = workbox.routing;
-const {CacheFirst, NetworkFirst} = workbox.strategies;
+const {CacheFirst, NetworkFirst, NetworkOnly} = workbox.strategies;
+const {BackgroundSyncPlugin} = workbox.backgroundSync;
 
 registerRoute(
     new RegExp('https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'),
@@ -25,4 +27,17 @@ registerRoute(
 registerRoute(
     new RegExp('http://localhost:4000/api/events'),
     new NetworkFirst()
+);
+
+// Offline Posts
+const bgSyncPlugin = new BackgroundSyncPlugin('offlinePostQueue', {
+    maxRetentionTime: 24 * 60 // Retry for max of 24 hours (specified in minutes)
+});
+
+registerRoute(
+    new RegExp('http://localhost:4000/api/events'),
+    new NetworkOnly({
+        plugins: [bgSyncPlugin]
+    }),
+    'POST'
 );
