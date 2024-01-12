@@ -26,8 +26,22 @@ serve -s build
 npx create-react-app my-app --template cra-template-pwa
 ````
 
+## Workbox
+
+```shell
+npm install workbox-cli --global
+workbox --version
+```
+
+```shell
+workbox wizard
+
+workbox generateSW workbox-config.js
+```
+
 ## Links
 
 - https://create-react-app.dev/docs/making-a-progressive-web-app/
 - https://web.dev/articles/service-worker-lifecycle?hl=es
+- https://developer.chrome.com/docs/workbox/
 - https://developer.chrome.com/docs/workbox/
