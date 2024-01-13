@@ -12,9 +12,9 @@ export const MapView = () => {
         if (!isLoading && mapDiv.current) {
             const map = new Map({
                 container: mapDiv.current,
-                style: 'mapbox://styles/mapbox/streets-v12', // style URL
+                style: 'mapbox://styles/mapbox/satellite-streets-v11',
                 center: userLocation,
-                zoom: 9,
+                zoom: 18,
             });
 
             setMap(map);
