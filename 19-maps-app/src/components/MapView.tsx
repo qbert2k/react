@@ -12,7 +12,7 @@ export const MapView = () => {
         if (!isLoading && mapDiv.current) {
             const map = new Map({
                 container: mapDiv.current,
-                style: 'mapbox://styles/mapbox/satellite-streets-v11',
+                style: 'mapbox://styles/mapbox/light-v10',
                 center: userLocation,
                 zoom: 18,
             });
