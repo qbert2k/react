@@ -12,7 +12,7 @@ export const MapView = () => {
         if (!isLoading && mapDiv.current) {
             const map = new Map({
                 container: mapDiv.current,
-                style: 'mapbox://styles/mapbox/light-v10',
+                style: 'mapbox://styles/mapbox/dark-v10',
                 center: userLocation,
                 zoom: 18,
             });
@@ -24,7 +24,6 @@ export const MapView = () => {
     if (isLoading) {
         return (<Loading/>);
     }
-
 
     return (
         <div ref={mapDiv}
