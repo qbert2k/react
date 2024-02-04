@@ -76,9 +76,8 @@ export const MapProvider = ({children}: Props) => {
         kms /= 100;
 
         const minutes = Math.floor(duration / 60);
-        console.log({kms, minutes});
-
         const bounds = new LngLatBounds(start, start);
+        console.log({kms, minutes});
 
         for (const coord of coords) {
             const newCoord: [number, number] = [coord[0], coord[1]];
@@ -125,7 +124,7 @@ export const MapProvider = ({children}: Props) => {
                 'line-color': 'yellow',
                 'line-width': 3
             }
-        })
+        });
     }
 
     return (
