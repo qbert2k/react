@@ -21,3 +21,4 @@ npm start
 ## Links
 
 - https://www.mapbox.com/
+- https://app.quicktype.io/
