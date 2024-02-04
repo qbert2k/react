@@ -56,6 +56,8 @@ yarn dev
 
 - https://www.youtube.com/watch?v=dNxaP_BTtwQ&list=PLCKuOXG0bPi26-eawizqyLOgM7j66H_4M
 
+- https://nextjs.org/
+
 ## Examples
 
 - https://qbert2k.github.io/react/gif-expert
