@@ -58,6 +58,8 @@ yarn dev
 
 - https://nextjs.org/
 
+- https://developers.google.com/search/docs/crawling-indexing/special-tags
+
 ## Examples
 
 - https://qbert2k.github.io/react/gif-expert
