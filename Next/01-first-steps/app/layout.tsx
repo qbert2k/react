@@ -9,17 +9,12 @@ export const metadata: Metadata = {
     description: "Generated with love",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
-    children: React.ReactNode;
-}>) {
+export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
     return (
         <html lang="en">
         <body className={inter.className}>
-        <h2>Hi again.</h2>
         {children}
         </body>
         </html>
     );
-}
+};
