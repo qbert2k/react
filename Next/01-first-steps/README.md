@@ -23,9 +23,9 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Docker
 
 ```shell
- docker build -dt nextjs-first-steps .
+ docker build -t nextjs-first-steps .
 
- docker container run -p 3000:3000 nextjs-first-steps
+ docker container run -dp 3000:3000 nextjs-first-steps
 ```
 
 ## Learn More
