@@ -47,16 +47,13 @@ yarn dev
 ## Useful Links
 
 - https://react.dev/learn/tutorial-tic-tac-toe
-
 - https://react-redux.js.org/introduction/getting-started
-
 - https://jestjs.io/docs/getting-started
-
 - https://blog.logrocket.com/top-10-react-component-libraries-for-2020/
-
 - https://www.youtube.com/watch?v=dNxaP_BTtwQ&list=PLCKuOXG0bPi26-eawizqyLOgM7j66H_4M
-
 - https://nextjs.org/docs/pages/building-your-application/deploying#docker-image
+- https://tailwindcomponents.com/component/dashboard-navigation
+- https://tailwindcss.com/
 
 ## Examples
 
