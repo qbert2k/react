@@ -54,6 +54,7 @@ yarn dev
 - https://nextjs.org/docs/pages/building-your-application/deploying#docker-image
 - https://tailwindcomponents.com/component/dashboard-navigation
 - https://tailwindcss.com/
+- https://nextjs.org/docs/app/api-reference/components/image
 
 ## Examples
 
